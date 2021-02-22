@@ -11,7 +11,7 @@
 -----
 * Purpose: [SpaceX](https://en.wikipedia.org/wiki/Book:SpaceX) has commercialized space and maintains perhaps the boldest mission statment of any business ever: to colonize Mars. The company's unlikely success has spurred a revival in space enthusiasm unseen since the Apollo program.
 
-* Question: While there is ample data about each flight, SpaceX has only a moderate 117 launches as of February 22. Given this high-dimensional data, formulating a testable question is difficult, moreso because many of the attributes stay the same from flight to flight.
+* Question: While there is ample data about each flight, SpaceX has only a moderate 117 launches as of February 22. Given this high-dimensional data, formulating a testable question is difficult, moreso because most parameters stay the same from flight to flight.
 
 * Data: An [excllent REST API for SpaceX](https://github.com/r-spacex/SpaceX-API) launch, rocket, core, capsule, starlink, launchpad, and landing pad data resides on Github. The [SpaceX subreddit](https://www.reddit.com/r/spacex/) provides additional links and tables related to everything from mission timelines to to recovery vessels. Perhaps outside the scope of this project, I would like to see visualizations of Mars relative to Earth as a habitable planet.
 -----	
