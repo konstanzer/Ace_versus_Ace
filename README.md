@@ -1,18 +1,19 @@
-### 1. MLB Statcast.
+-----
+### 1. MLB Statcast
 -----
 * Purpose: MLB Statcast data has been collected for the last five years using high-speed cameras tracking every pitch and play at the major league level. It may be interesting to investigate for hidden value in player performance using the new metrics similar to what Billy Beane did with OBP and the Pirates with defensive shifts.
 	
-* Question: WAR is a new metric that has become widely accepted as a measure of player value. Strangely, it has a complicated formula that no one seems to know. I wonder what statcast and traditional statistics correlate best with a high WAR. With this data, I have to avoid asking very subjective questions, such as, 'Why was team or player X so good?' which cannot be answered definitively.
+* Question: [Wins against replacement](https://en.wikipedia.org/wiki/Wins_Above_Replacement) is a widely accepted measure of player value. Strangely, baseball commentators are incapable of explaining its complicated formula. I would like to make a comprehensible metric using statcast and traditional statistics that correlates well with WAR. I am tempted to ask the subjective questions which fuel sports radio chatter but perhaps a simpler question like, "Did Gerrit Cole throw more sliders than Jacob deGrom in 2020?" would be suitable for hypothesis testing.
 	
-* Data: Baseball Savant maintains a query-able database of Statcast data. Query outputs can be downloaded as a .csv file. The site owner is Daren Willman, a stat-geek who has made some outstanding visualizations based on this data. For traditional statistics to accompany the new ones, baseball-reference.org maintains a comprehensive database dating back to the 19th century. 
-
-2. SpaceX.
+* Data: [Baseball Savant maintains a complete database of Statcast data.](https://baseballsavant.mlb.com/leaderboard/custom?year=2019,2018,2017,2016,2015&type=pitcher&filter=&sort=4&sortDir=asc&min=q&selections=xba,xslg,xwoba,xobp,xiso,exit_velocity_avg,launch_angle_avg,barrel_batted_rate,&chart=false&x=xba&y=xba&r=no&chartType=beeswarm) Query outputs can be downloaded as a .csv file. The site owner, Daren Willman, MLB director of R&D, has made some [outstanding visualizations based on this data.](https://twitter.com/darenw) For traditional statistics to accompany the new ones, [baseball-reference.org](https://www.baseball-reference.com/) maintains a comprehensive database dating back to 1871. 
+-----
+### 2. SpaceX
 -----
 * Purpose:
 * Question:
 * Data:
-	
-3. Whaling.
+-----	
+### 3. Whaling
 -----
 * Purpose: Many cetaceans (large marine mammals) are under threat of extinction from human activity. Bringing awareness to the shrinking numbers of these species may curb their depletion.
 
