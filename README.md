@@ -1,7 +1,5 @@
 
-<div style="text-align:center"><img src="/img/Statcast_logo.jpg" width='270'/></div>
-
------
+<div style="text-align:center"><img src="/img/Statcast_logo.jpg" width='200'/></div>
 
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data in ways that were never possible in the past. Statcast built upon that innovation by adding the tracking of players and the batted ball to the initial pitch-tracking technology. The initial radar/camera system was installed in all 30 parks in 2015 after a partial trial run in 2014.cvdv
 
