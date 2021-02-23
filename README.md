@@ -35,4 +35,11 @@ MLB migrated its Wheelhouse Data and Analytics Platform to BigQuery, Google Clou
 
 ### Baseball Savant
 
-BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch; the website does not offer this functionality.
+BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a powerful search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch; the website does not offer this functionality.
+
+<img alt="" src="img/savantsearch.png" width='900'>  
+<sub><b>Fig. 4: </b> The search tool that I used to determine a URL for scraping. </sub> 
+
+___
+
+
