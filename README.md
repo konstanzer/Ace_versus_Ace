@@ -1,8 +1,8 @@
 <a href="https://baseballsavant.mlb.com/statcast_search">
-    <img src="img/Statcast_logo.jpg" alt="Statcast logo" title="Statcast" align="right" height="120" width="200"/>
+    <img src="img/statcastlogo.png" alt="Statcast logo" title="Statcast" align="right" height="120"/>
 </a>
 
-Comparing Sliders with Statcast Pitch Tracking
+Statcast Pitch Tracking
 ======================
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data based on ball flight paths and player movements. The initial radar+camera system was installed in all 30 parks in 2015 after a partial trial run in 2014.
 
