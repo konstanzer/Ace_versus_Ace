@@ -27,6 +27,10 @@ Hawk-Eye first partnered with MLB through the 2014 launch of the video replay sy
 
 ___
 
+### Google Cloud
+
+MLB migrated its Wheelhouse Data and Analytics Platform to BigQuery, Google Cloud’s enterprise data warehouse. In one particulary outstanding interactive 3D visualization, BigQuery is used to store five seasons of pitch level event data. Views are created on top of the raw data to complete the feature engineering process. Finally, a K-Means clustering algorithm and dimensionality reduction via PCA map them onto a 3D space. The clusters represent pitchers' strategies.
+
 ### Baseball Savant
 
 BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed. Baseball Savant includes a search tool to create custom queries and dowload th output as .csv files. However, for modeling purposes, it is useful to have an observation for each pitch. The website currently does not offer this functionality. Savant Scraper allows for simple loading of a portable database or the creation of individual files that could be loaded to a storage object like S3 on AWS.
