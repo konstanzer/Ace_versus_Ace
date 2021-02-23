@@ -21,7 +21,7 @@ ___
 
 In 2020, MLB switched from Trackman to Hawk-Eye Innovations tracking technology. Hawk-Eye systems are based on the principles of triangulation using visual images and timing data provided by a number of high-speed video cameras located at different locations and angles around the area of play. In each frame sent from each camera, the system identifies the group of pixels which corresponds to the image of the ball and calculates the position of the ball by comparing its position on at least two cameras at the same instant in time. A succession of frames builds a record of the ball travel path and predicts the future flight path of the ball, as well as where it will interact with the playing area features programmed into the database. The system can even interpret these interactions to decide infringements of the rules of the game.
 
-<img alt="" src="/img/hawkeyemap.png" width='600'>  
+<img alt="" src="/img/hawkeyemap.png" width='800'>  
 <sub> Cameras dedicated to pitch tracking are in red; those dedicated to motion tracking and batted balls are in yellow. </sub>  
 
 
@@ -43,8 +43,16 @@ ___
 BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a powerful search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch; the website does not offer this functionality.
 
 <img alt="" src="img/savantsearch.png" width='1000'>  
-<sub><b>Fig. 4: </b> The search tool I used to determine a URL for scraping. </sub> 
 
-___
+A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns a total count.
 
+<img alt="" src="img/cole.png" width='1000'> 
+
+* Side note: At this point, I seearched for and found a Statcast API at sportradar.com called MLB v7. After creating an account and using the interactive API tool, the only output was a 403 error with the message, "developer inactive," so I turned to web scraping. *
+
+After some research, I found two parameters I needed to add to the beginning and end of the URL in order to output a .csv with details for each pitch.
+`csv?all=true`
+`type=details`
+
+The other parameters could be filled in with team or season to break the datast up into manageable sizes. I estimate all Statcast pitch data since 2015 would be a 1.6 GB database.
 
