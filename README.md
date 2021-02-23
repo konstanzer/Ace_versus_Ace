@@ -53,13 +53,15 @@ A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, 
 
 <img alt="" src="img/cole.png" width='1000'> 
 
-Side note: At this point, I seearched for and found a Statcast API at sportradar.com called MLB v7. After creating an account and using the interactive API tool, the only output was a 403 error with the message, "developer inactive," so I turned to web scraping.
+At this point, I registered for an account at sportradar.com to use their Statcast API called MLB v7. I used this command in terminal.
+`curl -X GET "http://api.sportradar.us/mlb/trial/v7/en/players/46734ad0-e55b-4e2f-8a0d-72387470fcdf/pitch_metrics.json?api_key=bhj2xb7z*****"`
+The ouput was:
+`<h1>Developer Inactive</h1>%`
+:unamused:
 
-After some research, I found two parameters I needed to add to the beginning and end of the URL in order to output a .csv with details for each pitch.
+I returned to Baseball Savant to try web scraping. Studying the URL form the search tool, I found two parameters I needed to add to the beginning and end of the URL in order to output a .csv with details for each pitch. The URL now looked like this.
 
-`csv?all=true`
-
-`type=details`
+`https://baseballsavant.mlb.com/statcast_search/csv?all=true?hfPT=&...c&min_pas=0&type=detail&`
 
 The other parameters could be filled in with team or season to break the datast up into manageable sizes. I estimate all Statcast pitch data since 2015 would be a 1.6 GB file.
 
