@@ -22,14 +22,12 @@ Hawk-Eye first partnered with MLB through the 2014 launch of the video replay sy
 <img alt="" src="/img/hawkeyecam.png" width='600'>  
 <sub><b>Fig. 2: </b> A typical Hawk-Eye camera installation. </sub>
 
+___
+
 <img alt="" src="/img/hawkeyemap.png" width='600'>  
 <sub><b>Fig. 3: </b> Cameras dedicated to pitch tracking are in red; those dedicated to motion tracking and batted balls are in yellow. </sub>   
 
 ___
-
-### Google Cloud
-
-MLB migrated its Wheelhouse Data and Analytics Platform to BigQuery, Google Cloud’s enterprise data warehouse. In one particulary outstanding interactive 3D visualization, BigQuery is used to store five seasons of pitch level event data. Views are created on top of the raw data to complete the feature engineering process. Finally, a K-Means clustering algorithm and dimensionality reduction via PCA map them onto a 3D space. The clusters represent pitchers' strategies.
 
 ### Baseball Savant
 
