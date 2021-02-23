@@ -1,5 +1,5 @@
 <a href="https://baseballsavant.mlb.com/statcast_search">
-    <img src="img/statcastlogo.png" alt="Statcast logo" title="Statcast" align="right" height="120"/>
+    <img src="/img/statcastlogo.jpg" alt="Statcast logo" title="Statcast" align="right" height="120"/>
 </a>
 
 Statcast Pitch Tracking
