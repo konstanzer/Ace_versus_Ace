@@ -11,7 +11,7 @@ Statcast is a tracking technology that allows for the collection and analysis of
 2. [Exploratory data analysis](#eda)
 2. [Future Directions](#future-directions)
 
-<img alt="" src="/img/pitchtracker.jpg" width='600'>  
+<img alt="" src="img/pitchtracker.jpg" width='400'>  
 
 ___
 
