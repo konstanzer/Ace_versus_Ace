@@ -18,9 +18,7 @@ In 2020, MLB introduced upgraded technology to power Statcast, featuring optical
 ___
 
 <img alt="" src="/img/hawkeyecam.png" width='600'>  
-<sub><b>Fig. 2: </b> A typical Hawk-Eye camera installation. </sub> 
-
-
+<sub><b>Fig. 2: </b> A typical Hawk-Eye camera installation. </sub> <br>
 <img alt="" src="/img/hawkeyemap.png" width='600'>  
 <sub><b>Fig. 3: </b> Cameras dedicated to pitch tracking are in red; those dedicated to motion tracking and batted balls are in yellow. </sub>   
 
