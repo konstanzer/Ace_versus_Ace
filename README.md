@@ -20,9 +20,9 @@ Hawk-Eye first partnered with MLB through the 2014 launch of the video replay sy
 
 
 <img alt="" src="/img/hawkeyecam.png" width='600'>  
-<sub><b>Fig. 2: </b> A typical Hawk-Eye camera installation. </sub>
+<sub><b>Fig. 2: </b> A Hawk-Eye camera installation. </sub>
 
-___
+
 
 <img alt="" src="/img/hawkeyemap.png" width='600'>  
 <sub><b>Fig. 3: </b> Cameras dedicated to pitch tracking are in red; those dedicated to motion tracking and batted balls are in yellow. </sub>   
