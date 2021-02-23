@@ -13,8 +13,6 @@ ___
 
 ___
 
-Since then, Statcast technology and terminology has changed the way that games are viewed and decisions are made, allowing allows front offices, broadcasters and fans alike to quantify the raw skills of players in ways that were previously available only to scouts or not available at all. Terms like "spin rate," "exit velocity," "launch angle" and more have become ubiquitous not just on broadcasts but from the players on the field as well, as players across the league used the data and the thinking behind it to elevate their game.
-
 In 2020, MLB introduced upgraded technology to power Statcast, featuring optical tracking sensors from Hawk-Eye Innovations and cloud infrastructure from Google Cloud. Hawk-Eye first partnered with MLB through the 2014 launch of the video replay system. The Hawk-Eye Statcast system uses a total of 12 cameras for optical pitch, hit and player tracking. Five cameras operating at 100 frames per second are primarily dedicated to pitch tracking, while an additional seven cameras are focused on tracking players and batted balls at 50 frames per second.
 
 ___
