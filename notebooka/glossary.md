@@ -232,7 +232,7 @@ vy0
     The velocity of the pitch, in feet per second, in y-dimension, determined at y=50 feet.
 
 
-vy0
+vz0
 
     The velocity of the pitch, in feet per second, in z-dimension, determined at y=50 feet.
 
