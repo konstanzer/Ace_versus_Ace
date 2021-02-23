@@ -1,12 +1,11 @@
 <a href="https://baseballsavant.mlb.com/statcast_search">
-    <img src="img/Statcast_logo.jpg" alt="Statcast logo" title="Statcast" align="right" height="60" width="200"/>
+    <img src="img/Statcast_logo.jpg" alt="Statcast logo" title="Statcast" align="right" height="160" width="200"/>
 </a>
 
 Statcast Pitch Tracking
 ======================
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data in ways that were never possible in the past. Statcast built upon that innovation by adding the tracking of players and the batted ball to the initial pitch-tracking technology. The initial radar/camera system was installed in all 30 parks in 2015 after a partial trial run in 2014.cvdv
-
-======================
+___
 
 <img alt="" src="/img/motioncapture.jpg" width='600'>  
 <sub><b>Fig. 1: </b> Tracking baserunner motion. </sub> 
@@ -14,14 +13,12 @@ Statcast is a tracking technology that allows for the collection and analysis of
 
 <img alt="" src="/img/pitchtracker.jpg" width='600'>  
 <sub><b>Fig. 2: </b> Tracking pitch flight. </sub>
-
-======================
+___
 
 Since then, Statcast technology and terminology has changed the way that games are viewed and decisions are made, allowing allows front offices, broadcasters and fans alike to quantify the raw skills of players in ways that were previously available only to scouts or not available at all. Terms like "spin rate," "exit velocity," "launch angle" and more have become ubiquitous not just on broadcasts but from the players on the field as well, as players across the league used the data and the thinking behind it to elevate their game.
 
 In 2020, MLB introduced upgraded technology to power Statcast, featuring optical tracking sensors from Hawk-Eye Innovations and cloud infrastructure from Google Cloud. Hawk-Eye first partnered with MLB through the 2014 launch of the video replay system. The Hawk-Eye Statcast system uses a total of 12 cameras for optical pitch, hit and player tracking. Five cameras operating at 100 frames per second are primarily dedicated to pitch tracking, while an additional seven cameras are focused on tracking players and batted balls at 50 frames per second.
-
-======================
+___
 
 <img alt="" src="/img/hawkeyecam.png" width='600'>  
 <sub><b>Fig. 3: </b> A typical Hawk-Eye camera installation. </sub> 
@@ -29,8 +26,7 @@ In 2020, MLB introduced upgraded technology to power Statcast, featuring optical
 
 <img alt="" src="/img/hawkeyemap.png" width='600'>  
 <sub><b>Fig. 4: </b> Cameras dedicated to pitch tracking are in red; those dedicated to motion tracking and batted balls are in yellow. </sub>   
-
-======================
+___
 
 #### Baseball Savant
 
