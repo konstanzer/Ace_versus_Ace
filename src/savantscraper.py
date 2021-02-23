@@ -78,7 +78,7 @@ def savant_search(season, team, home_road, csv=False, sep=';'):
     return single_combination if not csv else None
 
 
-def database_import(db_name, seasons, teams=None, reload=True):
+def database_import(db_name, seasons, teams):
     """Load detail-level Baseball Savant search results into SQLite database.
 
     Creates a database if it does not exist and loads all teams by default.
@@ -97,23 +97,8 @@ def database_import(db_name, seasons, teams=None, reload=True):
         HTTPError: if connection is unsuccessful multiple times.
 
     """
-    # Delete the database if it exists based on argument
-    if reload:
-        try:
-            os.remove(f"{db_name}.db")
-        except OSError:
-            pass
-
     # Connect to the database
     savant = sqlite3.connect(f"{db_name}.db")
-
-    # Define teams to be iterated over
-    if teams is None:
-        teams = ['LAA', 'HOU', 'OAK', 'TOR', 'ATL', 'MIL', 'STL',
-                 'CHC', 'ARI', 'LAD', 'SF', 'CLE', 'SEA', 'MIA',
-                 'NYM', 'WSH', 'BAL', 'SD', 'PHI', 'PIT', 'TEX',
-                 'TB', 'BOS', 'CIN', 'COL', 'KC', 'DET', 'MIN',
-                 'CWS', 'NYY']
 
     locations = ['Home', 'Road']
 
