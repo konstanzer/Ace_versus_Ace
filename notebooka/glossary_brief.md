@@ -83,3 +83,7 @@ release_spin
 release_extension
 
     Release extension of pitch in feet as tracked by Statcast.
+
+zone
+
+    Zone location of the ball when it crosses the plate from the catcher's perspective.
