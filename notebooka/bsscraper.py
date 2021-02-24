@@ -22,9 +22,16 @@ def savant_call(season, team, csv=False, sep=';'):
     return urllib.request.urlretrieve(url, f'{team}_{season}.csv') if csv else pd.read_csv(url)
 
 
-def make_database(db_name, seasons, teams):
+teams = ['LAA', 'HOU', 'OAK', 'TOR', 'ATL', 'MIL', 'STL','CHC', 'ARI', 
+         'LAD', 'SF', 'CLE', 'SEA', 'MIA', 'NYM', 'WSH', 'BAL', 'SD', 
+         'PHI', 'PIT', 'TEX', 'TB', 'BOS', 'CIN', 'COL', 'KC', 'DET', 
+         'MIN', 'CWS', 'NYY']
+
+
+def make_database(db_name, seasons, teams=teams):
     """
-    Creates a database. All data is loaded into a single table named statcast.
+    Creates a database. Uses all teams unless othrwise specified.
+    All data is loaded into a single table named statcast.
     """
     # Create and connect to the database.
     savant = sqlite3.connect(f'{db_name}.db')

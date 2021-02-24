@@ -1,0 +1,21 @@
+pitch_type, pitch_name
+AB, Automatic Ball
+AS, Automatic Strike
+CH, Change-up
+CU, Curveball (synonymous with CS)
+EP, Eephus
+FC, Cutter
+FF, Four-Seam Fastball
+FO, Forkball
+FS, Splitter
+FT, Two-Seam Fastball (synonymous with SI)
+GY, Gyroball
+IN, Intentional Ball
+KC, Knuckle Curve
+KN, Knuckleball
+NP, No Pitch
+PO, Pitchout
+SC, Screwball
+SI, Sinker (synonymous with FT)
+SL, Slider
+UN, Unknown 
