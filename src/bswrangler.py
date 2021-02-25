@@ -142,7 +142,10 @@ if __name__ == "__main__":
     backwards_k(df)
     backfiller(df, "events", "description")
     
-    df = drop_columns(df, ['description'])
+    df = onehot_encode(df, "pitch_type")
+    df = df.fillna(0)
+    df.CU = df.KC + df.CU
+    df = drop_columns(df, ['description', 'KC'])
     
     make_datetime(df)
     
