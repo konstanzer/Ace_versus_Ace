@@ -106,8 +106,6 @@ def player_df(df, player_name):
     Outs: df
     '''
     df = df[df['player_name'] == player_name]
-    df = drop_columns(df, ['player_name', 'pitcher'])
-    
     #This creates a boolean dataframe of all rows and only columns with at least 1 nonzero value.
     df = df.loc[:, (df != 0).any(axis=0)]
     
@@ -116,9 +114,8 @@ def player_df(df, player_name):
     
 if __name__ == "__main__":
     df = query_database('NYY_NYM_2020', '''
-                        SELECT player_name, pitcher, game_date, home_team,
-                        away_team, pitch_type, pitch_name, release_speed,
-                        release_spin_rate, events, description, zone,
+                        SELECT player_name, pitcher, game_date, pitch_type, pitch_name,
+                        release_speed, release_spin_rate, events, description, zone,
                         release_pos_x, release_pos_z, pfx_x, pfx_z, plate_x, plate_z,
                         release_extension, vx0, vy0, vz0, ax, ay, az
                         FROM statcast
@@ -141,17 +138,16 @@ if __name__ == "__main__":
                                       'pitchout'], 
                   ['swinging_strike', 'swinging_strike', 'swinging_strike', 'swinging_strike',
                    'swinging_strike','ball', 'ball'])
+    
     backwards_k(df)
     backfiller(df, "events", "description")
     
-    df = onehot_encode(df, 'pitch_type')
-    df = onehot_encode(df, 'events')
-    df = drop_columns(df, ['description', 'pitch_type', 'pitch_name'])
+    df = drop_columns(df, ['description'])
     
     make_datetime(df)
     
-    cole = player_df(df, 'Gerrit Cole')
-    degrom = player_df(df, 'Jacob deGrom')
+    df = pd.concat([player_df(df, 'Gerrit Cole'), player_df(df, 'Jacob deGrom')])
+    change_values(df, 'pitch_name', ['4-Seam Fastball', 'Knuckle Curve'], ['Fastball', 'Curveball'])
+    change_values(df, 'pitch_type', ['KC'], ['CU'])
     
-    save_df(degrom, 'degrom_2020')
-    save_df(cole, 'cole_2020')
+    save_df(df, 'aces_2020')
