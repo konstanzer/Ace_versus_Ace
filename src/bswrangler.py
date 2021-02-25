@@ -90,7 +90,7 @@ def save_df(df, file_name):
     '''
     Args: df, str
     '''
-    df.to_csv(df, f'{file_name}.csv', index=False)
+    df.to_csv(f'{file_name}.csv', index=False)
     
     
 if __name__ == "__main__":
