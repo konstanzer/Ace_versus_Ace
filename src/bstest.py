@@ -2,6 +2,7 @@ import scipy.stats as scs
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+plt.rcParams.update({'figure.max_open_warning': 0})
 
 
 def pitch_df(df, pitch):
@@ -32,7 +33,7 @@ def welch_ttest(df, df1, player1, df2, player2, pitch, stat):
                          equal_var=False)
 
 
-def print_test_results(df, df1, df1_mean, player1, df2, df2_mean, player2, pitch, stat):
+def print_test_results(pitch, stat, df, df1, df1_mean, player1, df2, df2_mean, player2):
     '''
     Args: df, df, df, str, df, df, str, str, str, int, int
     '''
@@ -60,8 +61,9 @@ if __name__ == "__main__":
     d = degrom.groupby('pitch_type')
 
     ps = ['CH','CU','FF','SL']
-    avg_cats = ['release_speed', 'release_spin_rate','pfx_x',
-                'pfx_z','vx0','vy0','vz0','ax','ay','az']
+    avg_cats = ['release_speed', 'release_spin_rate', 'pfx_x',
+                'pfx_z', 'release_extension', 'plate_x', 'plate_z',
+                'vx0','vy0','vz0','ax','ay','az']
 
     agg = pd.concat([c.agg('sum')[ps].sum(axis=1),
                     d.agg('sum')[ps].sum(axis=1)], axis=1).rename(columns={0: "Cole", 1: "deGrom"})
@@ -71,70 +73,17 @@ if __name__ == "__main__":
     
     
     #Tests
-    #Pitch speeds
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'FF', 'release_speed')
+    test_stats = ['release_speed', 'release_spin_rate',
+    				'pfx_x', 'pfx_z', 'release_extension']
+    pitches = ['FF', 'SL', 'CU', 'CH']
+    c_set = (cole, cole_mean, 'Cole')
+    d_set = (degrom, degrom_mean, 'deGrom')
     
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'SL', 'release_speed')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CU', 'release_speed')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CH', 'release_speed')
-    
-    #Pitch spins
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'FF', 'release_spin_rate')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'SL', 'release_spin_rate')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CU', 'release_spin_rate')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CH', 'release_spin_rate')
-    
-    #Lateral movment
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'FF', 'pfx_x')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'SL', 'pfx_x')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CU', 'pfx_x')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CH', 'pfx_x')
-    
-    #Vertical movement
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'FF', 'pfx_z')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'SL', 'pfx_z')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CU', 'pfx_z')
-    
-    print_test_results(df, cole, cole_mean, 'Cole',
-                       degrom, degrom_mean, 'deGrom',
-                       'CH', 'pfx_z')
+
+    for stat in test_stats:
+    	for pitch in pitches:
+    		print_test_results(pitch, stat, df,
+    			c_set[0], c_set[1], c_set[2],
+    			d_set[0], d_set[1], d_set[2])
+
+
