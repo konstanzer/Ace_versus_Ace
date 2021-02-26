@@ -114,8 +114,8 @@ def player_df(df, player_name):
     
 if __name__ == "__main__":
     df = query_database('NYY_NYM_2020', '''
-                        SELECT player_name, pitcher, game_date, pitch_type, pitch_name,
-                        release_speed, release_spin_rate, events, description, zone,
+                        SELECT player_name, pitcher, game_date, pitch_type, pitch_name, balls,
+                        strikes, release_speed, release_spin_rate, events, description, zone,
                         release_pos_x, release_pos_z, pfx_x, pfx_z, plate_x, plate_z,
                         release_extension, vx0, vy0, vz0, ax, ay, az
                         FROM statcast
