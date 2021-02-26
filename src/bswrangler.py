@@ -129,13 +129,16 @@ def density_plot(title, xlabel, kde_x, hue, legend_labels, file_nickname, clip=N
     plt.savefig(f'visuals/{file_nickname}_density.png')
 
 
-def box_plot(data, ylabel, labels, file_nickname):
+def box_plot(data, ylabel, labels, file_nickname, c='blue'):
     '''
     Args: list, str, str, str
     '''
     fig, ax = plt.subplots(figsize=(5,8))
     ax.set_ylabel(ylabel)
     ax.boxplot(data, labels=labels)
+    font = {'weight' : 'bold', 'size' : 16}
+    plt.rc('font', **font)
+
     plt.tight_layout()
     plt.savefig(f'visuals/{file_nickname}_boxplot.png')
 
@@ -219,12 +222,15 @@ if __name__ == "__main__":
     
     
     #Boxplots
+
     box_plot([cole.release_speed, degrom.release_speed], 'Release speeds (all pitches)',
              ['Cole', 'deGrom'], 'speeds')
     box_plot([cole.pfx_x, degrom.pfx_x], 'Horizontal movement (all pitches)',
-             ['Cole', 'deGrom'], 'xmove')
+             ['Cole', 'deGrom'], 'xmove', 'purple')
     box_plot([cole.pfx_z, degrom.pfx_z], 'Vertical movement (all pitches)',
-             ['Cole', 'deGrom'], 'zmove')
+             ['Cole', 'deGrom'], 'zmove', 'red')
+    box_plot([cole.release_speed, degrom.release_speed], 'Release speeds (all pitches)',
+             ['Cole', 'deGrom'], 'speeds')
 
     
     #Density plots
