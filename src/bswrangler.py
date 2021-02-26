@@ -2,6 +2,8 @@ import sqlite3
 import pandas as pd
 from sklearn.preprocessing import OneHotEncoder
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 def query_database(db_name, query):
@@ -110,8 +112,34 @@ def player_df(df, player_name):
     df = df.loc[:, (df != 0).any(axis=0)]
     
     return df
-    
-    
+
+def density_plot(title, xlabel, kde_x, hue, legend_labels, file_nickname, clip=None):
+    '''
+    Args: str, str, series, series, list, str
+    '''
+    fig, ax = plt.subplots(figsize=(12,3))
+    sns.set_theme(style='ticks')
+    sns.color_palette('hls', 8)
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    sns.kdeplot(kde_x, hue=hue, fill=True, alpha=.5, linewidth=2, clip=clip)
+    #Make sure legend labels are in order
+    ax.legend(legend_labels, bbox_to_anchor=(1, 1))
+    plt.tight_layout()
+    plt.savefig(f'visuals/{file_nickname}_density.png')
+
+
+def box_plot(data, ylabel, labels, file_nickname):
+    '''
+    Args: list, str, str, str
+    '''
+    fig, ax = plt.subplots(figsize=(5,8))
+    ax.set_ylabel(ylabel)
+    ax.boxplot(data, labels=labels)
+    plt.tight_layout()
+    plt.savefig(f'visuals/{file_nickname}_boxplot.png')
+
+
 if __name__ == "__main__":
     df = query_database('NYY_NYM_2020', '''
                         SELECT player_name, pitcher, game_date, pitch_type, pitch_name, balls,
@@ -149,8 +177,90 @@ if __name__ == "__main__":
     
     make_datetime(df)
     
-    df = pd.concat([player_df(df, 'Gerrit Cole'), player_df(df, 'Jacob deGrom')])
+    cole = player_df(df, 'Gerrit Cole')
+    degrom = player_df(df, 'Jacob deGrom')
+    df = pd.concat([cole, degrom])
+            
     change_values(df, 'pitch_name', ['4-Seam Fastball', 'Knuckle Curve'], ['Fastball', 'Curveball'])
     change_values(df, 'pitch_type', ['KC'], ['CU'])
     
     save_df(df, 'aces_2020')
+    
+    #PART 2: Visuals
+    
+    df = pd.read_csv('aces_2020.csv')
+    cole = df[df.pitcher==543037]
+    degrom = df[df.pitcher==594798]
+    
+    #Creating agg dataframes
+    c = cole.groupby('pitch_type')
+    d = degrom.groupby('pitch_type')
+
+    ps = ['CH','CU','FF','SL']
+    avg_cats = ['release_speed', 'release_spin_rate','pfx_x',
+                'pfx_z','vx0','vy0','vz0','ax','ay','az']
+
+    agg = pd.concat([c.agg('sum')[ps].sum(axis=1),
+                    d.agg('sum')[ps].sum(axis=1)],
+                    axis=1).rename(columns={0: "Cole", 1: "deGrom"})
+
+    cole_mean = c.agg('mean')[avg_cats]
+    degr_mean = d.agg('mean')[avg_cats]
+            
+        
+    #Stacked barchart of pitch frequencies
+    fig, ax = plt.subplots(figsize=(12,3))
+    agg.T.plot(kind='barh', stacked=True, ax=ax)
+    ax.legend(['Changeup','Curveball','Fastball','Slider'], bbox_to_anchor=(1, 1))
+    ax.set_title('Frequency of various pitch types')
+    ax.set_xlabel('total pitches thrown in 2020')
+    plt.tight_layout()
+    plt.savefig('visuals/stacked_bar_pitches.png')
+    
+    
+    #Boxplots
+    box_plot([cole.release_speed, degrom.release_speed], 'Release speeds (all pitches)',
+             ['Cole', 'deGrom'], 'speeds')
+    box_plot([cole.pfx_x, degrom.pfx_x], 'Horizontal movement (all pitches)',
+             ['Cole', 'deGrom'], 'xmove')
+    box_plot([cole.pfx_z, degrom.pfx_z], 'Vertical movement (all pitches)',
+             ['Cole', 'deGrom'], 'zmove')
+
+    
+    #Density plots
+    density_plot('Gerrit Cole: speeds by type of pitch',
+                 'Speed out of hand (mph)',
+                 kde_x=cole.release_speed, hue=cole.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Slider', 'Fastball'],
+                 file_nickname='cole_speed')
+    
+    density_plot('Jacob deGrom: speeds by type of pitch',
+                 'Speed out of hand (mph)',
+                 kde_x=degrom.release_speed, hue=degrom.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Fastball', 'Slider'],
+                 file_nickname='degrom_speed')
+    
+    density_plot('Gerrit Cole: spin rates by type of pitch',
+                 'Spin rate out of hand (rpm)',
+                 kde_x=cole.release_spin_rate, hue=cole.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Slider', 'Fastball'],
+                 file_nickname='cole_spin')
+    
+    density_plot('Jacob deGrom: speeds by type of pitch',
+                 'Speed out of hand (mph)',
+                 kde_x=degrom.release_spin_rate, hue=degrom.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Fastball', 'Slider'],
+                 file_nickname='degrom_spin',
+                 clip=(1230, 3100))
+    
+    density_plot('Gerrit Cole: horizontal movement',
+                 'Horizontal movement (in.) of the pitch',
+                 kde_x=cole.pfx_x, hue=cole.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Slider', 'Fastball'],
+                 file_nickname='cole_lateral')
+    
+    density_plot('Jacob deGrom: horizontal movement',
+                 'Horizontal movement (in.) of the pitch',
+                 kde_x=degrom.pfx_x, hue=degrom.pitch_type, 
+                 legend_labels=['Curveball', 'Changeup', 'Fastball', 'Slider'],
+                 file_nickname='degrom_lateral')

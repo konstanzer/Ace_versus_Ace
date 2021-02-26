@@ -1,4 +1,10 @@
-Obtuse stat names explained:
+pfx_x: the horizontal movement, in inches, of the pitch between the release point and home plate, as compared to a theoretical pitch thrown at the same speed with no spin-induced movement. This parameter is measured at y=40 feet regardless of the y0 value.
+
+pfx_z: the vertical movement, in inches, of the pitch between the release point and home plate, as compared to a theoretical pitch thrown at the same speed with no spin-induced movement. This parameter is measured at y=40 feet regardless of the y0 value.
+
+More detailed explanations at:
+https://fastballs.wordpress.com/category/pitchfx-glossary/
+
 
 game_type
 
