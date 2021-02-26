@@ -231,6 +231,8 @@ if __name__ == "__main__":
              ['Cole', 'deGrom'], 'zmove', 'red')
     box_plot([cole.release_speed, degrom.release_speed], 'Release speeds (all pitches)',
              ['Cole', 'deGrom'], 'speeds')
+    box_plot([cole.release_spin_rate, degrom.release_spin_rate], 'Release spin rates (all pitches)',
+             ['Cole', 'deGrom'], 'spins')
 
     
     #Density plots

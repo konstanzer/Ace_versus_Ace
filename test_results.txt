@@ -1,0 +1,112 @@
+Welch t-test - FF - release_speed - Cole & deGrom:
+Cole mean: 96.71007874015744
+deGrom mean: 98.56215686274506
+t-stat: -28.619660933576245
+p-value: 4.078188094169735e-136
+
+
+Welch t-test - SL - release_speed - Cole & deGrom:
+Cole mean: 88.7336734693878
+deGrom mean: 92.50446650124069
+t-stat: -38.77202616340317
+p-value: 2.082321003924481e-161
+
+
+Welch t-test - CU - release_speed - Cole & deGrom:
+Cole mean: 83.37874396135261
+deGrom mean: 84.06666666666663
+t-stat: -2.147342934877938
+p-value: 0.038482104634860695
+
+
+Welch t-test - CH - release_speed - Cole & deGrom:
+Cole mean: 88.31492537313436
+deGrom mean: 91.39687499999998
+t-stat: -15.450080708006386
+p-value: 2.7213820060797235e-28
+
+
+Welch t-test - FF - release_spin_rate - Cole & deGrom:
+Cole mean: 2505.1055118110235
+deGrom mean: 2477.0019607843137
+t-stat: 3.899203918125098
+p-value: 0.00010539824654217182
+
+
+Welch t-test - SL - release_spin_rate - Cole & deGrom:
+Cole mean: 2580.374149659864
+deGrom mean: 2565.2406947890818
+t-stat: 1.4832190813178627
+p-value: 0.13849021020678562
+
+
+Welch t-test - CU - release_spin_rate - Cole & deGrom:
+Cole mean: 2802.782608695652
+deGrom mean: 2631.8333333333335
+t-stat: 2.610887543040243
+p-value: 0.01407489219154637
+
+
+Welch t-test - CH - release_spin_rate - Cole & deGrom:
+Cole mean: 1750.2238805970148
+deGrom mean: 1637.8125
+t-stat: 5.696535341468649
+p-value: 7.159485256463214e-08
+
+
+Welch t-test - FF - pfx_x - Cole & deGrom:
+Cole mean: -1.0179527559055115
+deGrom mean: -0.576137254901962
+t-stat: -49.39594036603936
+p-value: 5.2527405516666434e-282
+
+
+Welch t-test - SL - pfx_x - Cole & deGrom:
+Cole mean: 0.42125850340136034
+deGrom mean: 0.3055831265508684
+t-stat: 11.224470241984294
+p-value: 6.530599105792096e-27
+
+
+Welch t-test - CU - pfx_x - Cole & deGrom:
+Cole mean: 0.7876811594202896
+deGrom mean: 0.604
+t-stat: 6.674994608512926
+p-value: 1.4049357993962715e-08
+
+
+Welch t-test - CH - pfx_x - Cole & deGrom:
+Cole mean: -1.2904477611940295
+deGrom mean: -1.1259895833333338
+t-stat: -7.458543023920915
+p-value: 1.0357210089717872e-11
+
+
+Welch t-test - FF - pfx_z - Cole & deGrom:
+Cole mean: 1.490787401574804
+deGrom mean: 1.3940392156862746
+t-stat: 12.794994047551288
+p-value: 4.346399975091821e-35
+
+
+Welch t-test - SL - pfx_z - Cole & deGrom:
+Cole mean: 0.2941496598639456
+deGrom mean: 0.41198511166253104
+t-stat: -7.797215989022916
+p-value: 4.366937685905544e-14
+
+
+Welch t-test - CU - pfx_z - Cole & deGrom:
+Cole mean: -0.9376811594202895
+deGrom mean: -0.36200000000000004
+t-stat: -14.030930853161063
+p-value: 5.90759819093891e-16
+
+
+Welch t-test - CH - pfx_z - Cole & deGrom:
+Cole mean: 0.8826865671641793
+deGrom mean: 0.31739583333333327
+t-stat: 20.184762521454616
+p-value: 3.197417844565978e-48
+
+
