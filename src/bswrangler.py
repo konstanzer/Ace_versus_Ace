@@ -50,9 +50,9 @@ def onehot_encode(df, field_name):
 
 def change_values(df, field_name, to_change, change_to):
     '''
-    Args: df, str, list, list
-    Takes string values from a column in a df and changes them.
-    Outs: None
+    Args: dataframe, str, list, list
+    Changes values from a column based on input list.
+    ResultsL None
     '''
     df.loc[:, field_name].replace(to_change, change_to, inplace=True)
     
