@@ -51,4 +51,9 @@ def make_database(db_name, seasons, teams=teams):
 
     
 if __name__ == "__main__":
-    savant_call(2020, 'NYY', 'Away', True)
+    print('A Basbeball Savant scraper.')
+    teams = input('Team code(s) like NYY (commas, no spaces): ')
+    years = input('Year(s) can be 2015 to 2020: ')
+    name = input('Name your database: ')
+
+    make_database(name, years.split(','), teams=teams.split(','))
