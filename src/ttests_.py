@@ -5,13 +5,18 @@ import matplotlib.pyplot as plt
 import sqlite3
 
 
-def query_database(db_name, query):
+def query_database(db_name, query, player1, player2=None):
     '''
     Args: str, str
     Returns df.
     '''
     conn = sqlite3.connect(f'{db_name}.db')
-    df = pd.read_sql_query(query, conn)
+
+    #For year_over_year, only one player is used
+    if player2 == None:
+        df = pd.read_sql_query(query, conn, params=(player1,))
+    else:
+        df = pd.read_sql_query(query, conn, params=(player1, player2))
     conn.close()
     
     return df
@@ -83,41 +88,58 @@ def run_tests(df, id1, id2, test_pitches, test_stats, year):
 def player_pair_test():
 
     year = input("Enter year: ")
+    id1 = input("Enter Player 1: ")
+    id2 = input("Enter Player 2: ")
+    pitches, stats = [], []
+    pitch, stat= ' ', ' ' 
+    while pitch != '':
+        pitch = input("Enter pitch: ").upper()
+        if len(pitch)>0: pitches.append(pitch)
+    while stat != '':
+        stat = input("Enter stat: ")
+        if len(stat)>0: stats.append(stat)
+
     df = query_database(f"MLB_{year}", """SELECT player_name, pitcher, pitch_type,
         release_speed, release_spin_rate, release_extension, release_pos_x, game_year,
         release_pos_z, release_pos_y, pfx_x, pfx_z, plate_x, plate_z,
-        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast""")
+        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast
+        WHERE player_name IN (?, ?)""", id1, id2)
 
-    id1, id2 = input("Enter two pitcher names: ").split(',')
-    pitches = input("Enter pitch types (FF,CU,SL,CH,FT,FS...): ")
-    stats = input("Enter stat fields (release_speed,pfx_z...): ")
     print('\n')
-    run_tests(df, id1, id2.strip(), pitches.upper().split(','), stats.split(','), year)
+    run_tests(df, id1, id2, pitches, stats, year)
 
 
 def year_over_year_test():
 
-    player = input("Enter the player's name: ")
-    y1, y2 = input("Enter 2 years: ").split(',')
-    y2 = y2.strip()
+    player = input("Enter player's name: ")
+    y1 = input("Enter Year 1: ")
+    y2 = input("Enter Year 2: ")
+
+    pitches, stats = [], []
+    pitch, stat= ' ', ' ' 
+    while pitch != '':
+        pitch = input("Enter pitch: ").upper()
+        if len(pitch)>0: pitches.append(pitch)
+    while stat != '':
+        stat = input("Enter stat: ")
+        if len(stat)>0: stats.append(stat)
 
     df1 = query_database(f"MLB_{y1}", """SELECT player_name, pitcher, pitch_type,
         release_speed, release_spin_rate, release_extension, release_pos_x, game_year,
         release_pos_z, release_pos_y, pfx_x, pfx_z, plate_x, plate_z,
-        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast""")
+        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast
+        WHERE player_name = ?""", player)
     
-    print("half way there...")
     df2 = query_database(f"MLB_{y2}", """SELECT player_name, pitcher, pitch_type,
         release_speed, release_spin_rate, release_extension, release_pos_x, game_year,
         release_pos_z, release_pos_y, pfx_x, pfx_z, plate_x, plate_z,
-        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast""")
+        vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast
+        WHERE player_name = ?""", player)
 
     df = pd.concat([df1[df1.player_name==player], df2[df2.player_name==player]])
-    print(df.game_year.value_counts())
-    pitches = input("Enter pitch types (FF,CU,SL,CH,FT,FS...): ")
-    stats = input("Enter stat fields (release_speed,pfx_z...): ")
+
     print('\n')
-    run_tests(df, int(y1), int(y2), pitches.upper().split(','), stats.split(','), player)
+    run_tests(df, int(y1), int(y2), pitches, stats, player)
 
 
 if __name__ == "__main__":
@@ -125,8 +147,8 @@ if __name__ == "__main__":
     print('Congratulations, you have chosen to do a Baseball Savant Welch\'s t-test.')
     print('docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html')
 
-    test_type = input("Enter 1 for 1 player year-over-year test.\n"
-        "Enter 2 for 2 players, same year test: ")
+    test_type = input("1 for 1 player year-over-year test.\n"
+        "2 for 2 players, same year test: \n")
     
     if int(test_type)==1:
         year_over_year_test()
