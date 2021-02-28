@@ -17,6 +17,7 @@ def query_database(db_name, query, player1, player2=None):
         df = pd.read_sql_query(query, conn, params=(player1,))
     else:
         df = pd.read_sql_query(query, conn, params=(player1, player2))
+
     conn.close()
     
     return df
@@ -60,7 +61,6 @@ def print_test_results(df, id1, id2, pitch, stat, test_stats, year):
 
     merged = pd.concat([player1, player2])
     x = np.linspace(merged[stat].min(), merged[stat].max(), 50)
-
     player1_means = player1.groupby('pitch_type').agg('mean')[test_stats]
     player2_means = player2.groupby('pitch_type').agg('mean')[test_stats]
 
@@ -85,44 +85,60 @@ def run_tests(df, id1, id2, test_pitches, test_stats, year):
             print_test_results(df, id1, id2, pitch, stat, test_stats, year)
 
 
+def user_input_pitch_stat():
+
+    official_pitches = ['FF', 'SL', 'CU', 'CH', 'FS',
+                        'FT', 'SC', 'FO', 'KN', 'KC', 'FC', 'SI']
+    #For lateral break, player handedness must be added to compare a lefty and righty
+    official_stats = ['release_speed', 'release_spin_rate', 'release_extension',
+                        'release_pos_x', 'release_pos_z', 'release_pos_y', 'pfx_x',
+                        'pfx_z', 'plate_x', 'plate_z', 'vx0', 'vy0', 'vz0', 'ax', 'ay',
+                        'az', 'effective_speed']
+
+    pitches, stats, pitch, stat = [], [], " ", " "
+    while pitch != "":
+        pitch = input("Enter pitch: ").upper()
+        if pitch in official_pitches: pitches.append(pitch)
+    while stat != "":
+        stat = input("Enter stat: ")
+        if stat in official_stats: stats.append(stat)
+
+    print(f"Tests will be run on {pitches} for {stats}.")
+
+    return pitches, stats
+
+
+def degrom_rule(name):
+    return "Jacob deGrom" if name == "Jacob Degrom" else name
+
+
 def player_pair_test():
 
     year = input("Enter year: ")
-    id1 = input("Enter Player 1: ")
-    id2 = input("Enter Player 2: ")
-    pitches, stats = [], []
-    pitch, stat= ' ', ' ' 
-    while pitch != '':
-        pitch = input("Enter pitch: ").upper()
-        if len(pitch)>0: pitches.append(pitch)
-    while stat != '':
-        stat = input("Enter stat: ")
-        if len(stat)>0: stats.append(stat)
+    id1 = input("Enter Player 1: ").title()
+    id2 = input("Enter Player 2: ").title()
+    id1 = degrom_rule(id1)
+    id2 = degrom_rule(id2)
+    pitches, stats = user_input_pitch_stat()
 
     df = query_database(f"MLB_{year}", """SELECT player_name, pitcher, pitch_type,
         release_speed, release_spin_rate, release_extension, release_pos_x, game_year,
         release_pos_z, release_pos_y, pfx_x, pfx_z, plate_x, plate_z,
         vx0, vy0, vz0, ax, ay, az, effective_speed FROM statcast
         WHERE player_name IN (?, ?)""", id1, id2)
-
+    
     print('\n')
+
     run_tests(df, id1, id2, pitches, stats, year)
 
 
 def year_over_year_test():
 
-    player = input("Enter player's name: ")
+    player = input("Enter player's name: ").title()
+    player = degrom_rule(player)
     y1 = input("Enter Year 1: ")
     y2 = input("Enter Year 2: ")
-
-    pitches, stats = [], []
-    pitch, stat= ' ', ' ' 
-    while pitch != '':
-        pitch = input("Enter pitch: ").upper()
-        if len(pitch)>0: pitches.append(pitch)
-    while stat != '':
-        stat = input("Enter stat: ")
-        if len(stat)>0: stats.append(stat)
+    pitches, stats = user_input_pitch_stat()
 
     df1 = query_database(f"MLB_{y1}", """SELECT player_name, pitcher, pitch_type,
         release_speed, release_spin_rate, release_extension, release_pos_x, game_year,
@@ -139,12 +155,13 @@ def year_over_year_test():
     df = pd.concat([df1[df1.player_name==player], df2[df2.player_name==player]])
 
     print('\n')
+
     run_tests(df, int(y1), int(y2), pitches, stats, player)
 
 
 if __name__ == "__main__":
-    '''maybe even automate tests to look for interesting results.'''
-    print('Congratulations, you have chosen to do a Baseball Savant Welch\'s t-test.')
+
+    print('You have chosen to do a Baseball Savant Welch\'s t-test.')
     print('docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html')
 
     test_type = input("1 for 1 player year-over-year test.\n"
