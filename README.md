@@ -172,7 +172,7 @@ ___
     
    The mean slider release spin rates between deGrom and Cole are not the same.
    
-**What is the distribution under the null hypothesis?**
+**Distribution under the null hypothesis**
     
    Comparing the spin rates of sliders, it is the distribution of the difference of samples means where the assumption is that the mean of this
    distribution is zero: 𝜇SL_spin deGrom -  𝜇SL_spin Cole = 0
@@ -247,7 +247,7 @@ ___
    
 ## Results
 
-Continuing in this way with through each of rhe four pitches thrown by Jacob deGrom and Gerrit Cole in 2020 (faastball, slider, curveball, and changeup) for each of the four meaurements in my DataFrame, I was able to draw the following conclusions.
+Continuing in this way with through each of rhe four pitches thrown by Jacob deGrom and Gerrit Cole in 2020 (faastball, slider, curveball, and changeup) for each of the four meaurements in my DataFrame, I was able to draw the following conclusions. In all tests, I use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple means of slider measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
 
 ### Fastball
 
@@ -270,10 +270,10 @@ Continuing in this way with through each of rhe four pitches thrown by Jacob deG
 
 | Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
 |-------------------|---------|-----------|-----------|-----|
-| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
-| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
-| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
-| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+| release speed     | 2e-161  | 88.7      | **92.5**  | Y   |
+| release spin rate | 0.1385  | **2580**  | 2565      | N   |
+| lateral movement  | 7e-27   | **0.42**  | 0.31      | Y   |
+| vertical movement | 4e-14   | 0.29      | **0.41**  | Y   |
 
 ### Curveball
 
@@ -281,12 +281,12 @@ Continuing in this way with through each of rhe four pitches thrown by Jacob deG
 * Gerrit Cole: 207
 * Jacob deGrom: 30
 
-| Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
-|-------------------|---------|-----------|-----------|-----|
-| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
-| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
-| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
-| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+| Measurement       | p-value | 𝜇Cole      | 𝜇deGrom   | RTN |
+|-------------------|---------|------------|-----------|-----|
+| release speed     | 0.0385  | 83.4       | **84.1**  | N   |
+| release spin rate | 0.0141  | **2803**   | 2632      | N   |
+| lateral movement  | 1e-8    | **0.79**   | 0.6       | Y   |
+| vertical movement | 6e-16   | **-0.94**  | -0.36     | Y   |
 
 ### Changeup
 
@@ -296,10 +296,10 @@ Continuing in this way with through each of rhe four pitches thrown by Jacob deG
 
 | Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
 |-------------------|---------|-----------|-----------|-----|
-| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
-| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
-| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
-| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+| release speed     | 3e-128  | 88.3      | **91.4**  | Y   |
+| release spin rate | 7e-8    | **1750**  | 1638      | Y   |
+| lateral movement  | 1e-11   | **-1.29** | -1.13     | Y   |
+| vertical movement | 3e-48   | **0.88**  | 0.32      | Y   |
 
 ___
 
@@ -308,7 +308,7 @@ ___
 	1. Explain why Cole creates more spin on average but deGrom has more extreme values of spin.
 	2. Include command of pitches in analysis.
 	3. Incorporate pitch outcomes into analysis
-	4. Conduct z-test to compare overall effect of lateral break.
+	4. Conduct z-test to compare overall effects.
 	
 ### Acknowledgements
 Thank you to Dr. Juliana Duncan, lead data science instructor and principal data scientist at Galvanize Inc., for her pointed questions and conceptual help in forming hypotheses tests.
