@@ -36,7 +36,15 @@ ___
 
 ## Baseball Savant
 
-BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch and the website does not offer this functionality. A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns only a total count and summary statistics. Fortunately, the site allows web scraping with a simple change to the URL on the search tool page. Adding `csv?all=true` to the beginning and `type=detail` to the end will automatically download a .csv file with individual observations. These files must be broken up by for general datasets by changing the `team` and `Sea` parameters. Looping through the database in this way, I was able to download all pitching Statcast data (2015-2020, 1.7GB) in about 30 minutes with a high-speed internet connection (~80 Mbps.)
+BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch and the website does not offer this functionality. A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns only a total count and summary statistics. Fortunately, the site allows web scraping with a simple change to the URL on the search tool page. Adding `csv?all=true` to the beginning and `type=detail` to the end will automatically download a .csv file with individual observations. These files must be broken up by for general datasets by changing the `team` and `Sea` parameters. Looping through the database in this way, I was able to download all pitching Statcast data (2015-2020, 1.7GB) into a database file in about 30 minutes with a high-speed internet connection (~80 Mbps.)
+
+	  for season in seasons:
+		for team in teams:
+		    for place in where:
+			pd.io.sql.to_sql(savant_call(season, team, place),
+					 name='statcast', con=savant, if_exists='append')
+
+Once the database files were created, I used an SQLite query to select intresting columns. Depracated stats showed up as empty columns and those I simply skipped over. As for wrangling, I used `sklearn.OneHotEncoder` to create dummy variables for pitch types. I also merged the `events` and `description` columns into a single outcome for every pitch, which I planned to use as a gauge of pitch successfulness. Lastly, I added a `strikeout_looking` event to distinguish it from `strikeout_swinging`.
 
 (As a possible alternative, an API for this data is available at sportradar.com. However, I did not have success using my trial key and did not pursue the matter further given the ease of scraping the data.)
 
@@ -102,7 +110,12 @@ ___
 
 ## Hypotheses and method
 
-### Hypothesis the first
+In this section, I describe the results of 16 hypotheses tests perfored with the `ttests.py` script. The tests examine four pitches thrown by each pitcher (fastballs, sliders, changeups, and curveballs) and four measurments for each of those pitches (release speed, release spin rate, late horizontal movement, and late vertical movement,) In all cases, I use a Welch's t-test; some of the sample sizes are uneven. Thos is due to the fact that Cole favors curveballs and deGrom favors changeups. In order to perform a Welch's t-test, I use `scipy.stats.ttest_ind`.
+
+`result = scs.ttest_ind(df_cole[df_cole.pitch_type==pitch][stat], df_degrom[df_degrom.pitch_type==pitch][stat], equal_var=False)`
+
+
+### Hypothesis the first: FF + release_speed
 
 **Scientific Question**
     
@@ -115,21 +128,16 @@ ___
 **Alternative Hypothesis**
     
    The mean fastball release speeds between deGrom and Cole are not the same.
-
-**Type of Test and Test Statistic**
     
-   I use a Welch's t-test. In order to perform a Welch's t-test I use `scipy.stats.ttest_ind`.
-
-**What is the distribution under the null hypothesis?**
+**Distribution under the null hypothesis**
     
    The distribution of the null hypothesis represents the difference between the mean of the two distributions. Comparing the release speeds for fastballs, it is
    the distribution of the difference of samples means where the assumption is that the mean of this distribution is zero:
-   𝜇 FF_speed deGrom - 𝜇 FF_speed Cole = 0
+   𝜇FF_speed deGrom - 𝜇FF_speed Cole = 0
 
 **Significance level**
     
-   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 3 to account for the fact that I will be comparing multiple
-   means. There for my signficance for each individual test will be 𝛼=0.05/3 = 0.1666.
+   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple means of fastball measurements between the pitchers. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
 
 **p-value**
 
@@ -144,62 +152,56 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.1666. The p-value (the probability of seeing this result or a result more extreme given
-   the null hypothesis) is far less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value (the probability of seeing this result or a result more extreme given the null hypothesis) is far less than the significance level. Therefore my conclusion is:
    
    I **reject the null** hypothesis that the release speed means are the same.
-
+   
 ___
 
-### Hypothesis the second
+### Hypothesis the second: SL + release_spin_rate
 
 **Scientific Question**
     
-   Are the the mean curveball release spin rates between Jacob deGrom and Gerrit Cole the same?
+   Are the the mean slider release spin rates between Jacob deGrom and Gerrit Cole the same?
 
 **Null Hypothesis**
     
-   The mean curveball release spin rates between deGrom and Cole are the same.
+   The mean slider release spin rates between deGrom and Cole are the same.
 
 **Alternative Hypothesis**
     
-   The mean curveball release spin rates between deGrom and Cole are not the same.
+   The mean slider release spin rates between deGrom and Cole are not the same.
    
-**Type of Test and Test Statistic**
-    
-   I use a Welch's t-test. In order to perform a Welch's t-test I use `scipy.stats.ttest_ind`.
-
 **What is the distribution under the null hypothesis?**
     
-   The distribution of the null hypothesis represents the difference between the mean of the two distributions. Comparing the spin rates of curveballs, it is the
-   distribution of the difference of samples means where the assumption is that the mean of this distribution is zero:
-   𝜇 CU_spin deGrom - 𝜇 CU_spin Cole = 0
+   Comparing the spin rates of sliders, it is the distribution of the difference of samples means where the assumption is that the mean of this
+   distribution is zero: 𝜇SL_spin deGrom -  𝜇SL_spin Cole = 0
 
 **Significance level**
     
-   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 3 to account for the fact that I will be comparing multiple
-   means. There for my signficance for each individual test will be 𝛼=0.05/3 = 0.1666.
+   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple
+   means of slider measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
 
 **p-value**
 
-    Gerrit Cole mean release spin rate: 2803
-    Jacob deGrom mean release spin rate: 2632
-    Gerrit Cole sample size: 207
-    Jacob deGrom sample size: 30
-    t-stat: 2.61
-    p-value: 0.0141
+    Gerrit Cole mean release spin rate: 2580
+    Jacob deGrom mean release spin rate: 2565
+    Gerrit Cole sample size: 294
+    Jacob deGrom sample size: 403
+    t-stat: 1.48
+    p-value: 0.138
 
-<img alt="" src="src/visuals/ttests/ttest_543037_594798_CU_release_spin_rate.png" width='500'> 
+<img alt="" src="src/visuals/ttests/ttest_543037_594798_SL_release_spin_rate.png" width='500'> 
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.1666. The p-value is less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is NOT less than the significance level. Therefore my conclusion is:
    
-   I **reject the null** hypothesis that the release spin rate means are the same.
+   I **do not reject the null** hypothesis that the slider release spin rate means are the same.
    
 ___
 
-### Hypothesis the third
+### Hypothesis the third: CU + pfx_z
 
 **Scientific Question**
     
@@ -212,22 +214,17 @@ ___
 **Alternative Hypothesis**
     
    The mean curveball vertical movements between deGrom and Cole are not the same.
-   
-**Type of Test and Test Statistic**
-    
-   I use a Welch's t-test. In order to perform a Welch's t-test I use `scipy.stats.ttest_ind`.
 
-**What is the distribution under the null hypothesis?**
+**Distribution under the null hypothesis**
     
-   The distribution of the null hypothesis represents the difference between the mean of the two distributions. Comparing the vertical movements of curveballs, it
-   is the distribution of the difference of samples means where the assumption is that the mean of this distribution is zero:
-   𝜇 CU_movement deGrom - 𝜇 CU_movement Cole = 0
+   Comparing the vertical movements of curveballs, it is the distribution of the difference of samples means where the assumption is that the mean of this
+   distribution is zero: 𝜇CU_movement deGrom - 𝜇CU_movement Cole = 0
 
 **Significance level**
     
-   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 3 to account for the fact that I will be comparing multiple
-   means. There for my signficance for each individual test will be 𝛼=0.05/3 = 0.1666.
-
+   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple
+   means of curveball measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
+   
 **p-value**
 
     Gerrit Cole mean vertical movement: -0.94
@@ -241,23 +238,30 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.1666. The p-value is far less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is less than the significance level. Therefore my conclusion is:
    
    I **reject the null** hypothesis that the curveball vertical movement means are the same.
    
 ___
 
    
-## Conclusions
+## Results
 
-Given the 2020 Statcast data for Jacob deGrom and Gerrit Cole:
+Continuing in this way with through each of rhe four pitches thrown by Jacob deGrom and Gerrit Cole in 2020 (faastball, slider, curveball, and changeup) for each of the four meaurements in my DataFrame, I was able to draw the following conclusions.
 
-	1. Who throws a harder fastball?
-		Jacob deGrom
-	2. Who has a higher curveball spin rate?
-		Gerrit Cole
-	3. Who has more drop on their curve?
-		Gerrit Cole
+### Fastball
+
+#### Observations:
+	Cole: 635
+	deGrom: 510
+
+| Measurement       | p-value | 𝜇Cole   | 𝜇deGrom | RTN
+|-------------------|---------|---------|---------|-----
+| release speed     | 4e-136  | 96.7    | 98.6    | Y
+| release spin rate | 0.0001  | 2505    | 2477    | Y
+| lateral movement  |
+| vertical movement |
+
 
 ### Additional research
 
