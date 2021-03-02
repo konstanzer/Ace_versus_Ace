@@ -7,7 +7,7 @@ Ace versus Ace: An analysis of 2020 Statcast data for Gerrit Cole and Jacob deGr
 
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data based on ball flight paths and player movements. The initial camera and radar system was installed in all 30 MLB parks in 2015 after a trial run in 2014. This project focuses specifically on Statcast data for two pitchers, Gerrit Cole of the New York Yankees and Jacob deGrom of the New York Mets, gathered during the abbreviated 2020 season. The dataset includes a total of 2,338 pitches, each with five features: pitch type, release speed, release spin rate, vertical movement, and horizontal movement.
 
-<img alt="" src="img/statcast.jpg" width='300'>
+<img alt="" src="img/statcast.jpg" width='400'>
 
 ## Contents
 - [Overview](#Overview)
@@ -66,11 +66,19 @@ ___
 
 **Stacked bar chart of pitch frequencies in 2020**
 
+#### Total observations:
+* Gerrit Cole: 1203
+* Jacob deGrom: 1135
+
 <img alt="" src="src/visuals/stacked_bar_pitches.png" width='800'> 
 
 ___
 
 **Boxplots of speed, spin rates, and movement lateral and vertical**
+
+#### Key takeaways:
+* Cole has a higher average spin rate average although deGrom has a much greater range of spin values.
+* Cole has a higher average movement in both the x and z axes.
 
 Release speeds             |  Release spin rates
 :-------------------------:|:-------------------------:
@@ -86,6 +94,10 @@ ___
 
 Unit is MPH measured out-of-hand.
 
+#### Key takeaways:
+* deGrom has higher mean speeds on every pitch.
+* Sliders and changeups overlap.
+
 <img alt="" src="src/visuals/Gerrit Cole_release_speed_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_release_speed_density.png" width='1000'>
 
@@ -94,6 +106,10 @@ ___
 **Density plots comparing spin rates grouped by pitch type**
 
 Unit is RPM. A baseball spins approximately 17 to 22 times during travel.
+
+#### Key takeaways:
+* Cole has higher mean spin rates on every pitch.
+* Curveballs spin fast and changeups spin slow. Cole throws more curves and deGrom throws more changeups.
 
 <img alt="" src="src/visuals/Gerrit Cole_release_spin_rate_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_release_spin_rate_density.png" width='1000'>
@@ -104,6 +120,13 @@ ___
 
 Lateral movement from catcher's perspective. Unit is inches moved in last 40 ft. Negative values move in on a right-handed hitter and vice versa.
 
+#### Key takeaways:
+* Both pitchers are right-handed.
+* Cole has a higher mean break on every pitch.
+* As deGrom uses his changeup more, less may be better.
+* Sliders and curveballs tail (move way from a right-handed batter.)
+* Fastballs and changeups fade (move in on a right-handed batter.)
+
 <img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_pfx_x_density.png" width='1000'>
 
@@ -112,6 +135,11 @@ ___
 **Density plots comparing vertical movement grouped by pitch type**
 
 Vertical movement from catcher's perspective. Unit is inches moved in last 40 ft. Negative values move down and vice versa. While no pitch technically rises (due to gravity), rise in this case means the deviation from the path of a ball with no spin-induced movement.
+
+#### Key takeaways:
+* Cole has a higher mean break on fastballs and changeups; deGrom is higher for sliders and curves.
+* As Cole uses his curveball more, less may be better.
+* Fastballs, sliders, and changeups rise on average.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_pfx_z_density.png" width='1000'> 
