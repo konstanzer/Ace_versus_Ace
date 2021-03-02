@@ -77,8 +77,8 @@ ___
 **Boxplots of speed, spin rates, and movement lateral and vertical**
 
 #### Key takeaways:
-* Cole has a higher average speed and deGrom has a much greater range of speeds.
-* Cole has a higher average spin rate average and deGrom has a higher top speed.
+* Cole has a higher average speed and deGrom has a higher top speed. .
+* Cole has a higher average spin rate and deGrom has a bigger range of spin rates.
 * deGrom's stratgy may rely on changing spin and speeds.
 * Cole has a higher average movement in both the x and z axes.
 
