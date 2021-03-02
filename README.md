@@ -40,7 +40,7 @@ BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports 
 
 (As a possible alternative, an API for this data is available at sportradar.com. However, I did not have success using my trial key and did not pursue the matter further given the ease of scraping the data.)
 
-<img alt="" src="img/techslide.png" width='500'>  
+<img alt="" src="img/techslide.png" width='700'>  
 
 ___
 
