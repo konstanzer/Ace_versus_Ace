@@ -47,18 +47,33 @@ ___
 ## Visualizations
 
 <img alt="" src="src/visuals/stacked_bar_pitches.png" width='800'> 
+
+___
+
 <img alt="" src="src/visuals/release_speed_boxplot.png" width='400'> 
 <img alt="" src="src/visuals/release_spin_rate_boxplot.png" width='400'> 
 <img alt="" src="src/visuals/pfx_x_boxplot.png" width='400'> 
 <img alt="" src="src/visuals/pfx_z_boxplot.png" width='400'> 
-<img alt="" src="src/visuals/Gerrit Cole_release_speed_density.png" width='800'> 
-<img alt="" src="src/visuals/Jacob deGrom_release_speed_density.png" width='800'>
-<img alt="" src="src/visuals/Gerrit Cole_release_spin_rate_density.png" width='800'> 
-<img alt="" src="src/visuals/Jacob deGrom_release_spin_rate_density.png" width='800'> 
-<img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='800'> 
-<img alt="" src="src/visuals/Jacob deGrom_pfx_x_density.png" width='800'> 
-<img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='800'> 
-<img alt="" src="src/visuals/Jacob deGrom_pfx_z_density.png" width='800'> 
+
+___
+
+<img alt="" src="src/visuals/Gerrit Cole_release_speed_density.png" width='1000'> 
+<img alt="" src="src/visuals/Jacob deGrom_release_speed_density.png" width='1000'>
+
+___
+
+<img alt="" src="src/visuals/Gerrit Cole_release_spin_rate_density.png" width='1000'> 
+<img alt="" src="src/visuals/Jacob deGrom_release_spin_rate_density.png" width='1000'>
+
+___
+
+<img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='1000'> 
+<img alt="" src="src/visuals/Jacob deGrom_pfx_x_density.png" width='1000'>
+
+___
+
+<img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
+<img alt="" src="src/visuals/Jacob deGrom_pfx_z_density.png" width='1000'> 
 
 ___
 
