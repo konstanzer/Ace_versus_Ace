@@ -7,7 +7,17 @@ Ace versus Ace: An analysis of 2020 Statcast data for Gerrit Cole and Jacob deGr
 
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data based on ball flight paths and player movements. The initial camera and radar system was installed in all 30 MLB parks in 2015 after a trial run in 2014. This project focuses specifically on Statcast data for two pitchers, Gerrit Cole of the New York Yankees and Jacob deGrom of the New York Mets, gathered during the abbreviated 2020 season. The dataset includes a total of 2,338 pitches, each with five features: pitch type, release speed, release spin rate, vertical movement, and horizontal movement.
 
-<img alt="" src="img/statcast.jpg" width='300'>  
+<img alt="" src="img/statcast.jpg" width='300'>
+
+
+- [Overview](#Overview)
+- [Hawk-Eye Innovations](#Hawk-Eye-Innovations)
+- [Baseball Savant](#Baseball-Savant)
+- [Visualizations](#Visualizations)
+- [Hypotheses and Method](#Hypotheses-and-Method)
+- [Results](#Results)
+- [Additional Research](#Additional-Research)
+- [Acknowledgements](#Acknowledgements)
 
 ___
 
@@ -18,7 +28,7 @@ Baseball players, managers, scouts, and fans alike have used stats to analyze an
 Much of the value of Statcast data has been realized already. Pitchers such as Adam Ottavino have revived their careers through a process known as pitch design. Using real-time feedback from high-speed cameras connected to a laptop computing movement, the pitcher tweaks mechanics and grips until he achieves a maximally breaking pitch. On the visualization front, Daren Willman, founder of the Baseball Savant website, has produced some truly excellent and original diagrams providing new insights into an old game. For the purposes of this project, I wanted to see what measurable on-field factors were associated with a successful pitch and outing and their opposites. It stands to reason that a pitcher may achieve an edge id he knows what factors are correlated with his successes and failures. On the opposite side of the ball, a hitter who knows the pitcher's usual plan of attack is more prepared for the location, movement, and sequence of pitches.
 ___
 
-## Hawk-Eye
+## Hawk-Eye Innovations
 
 <img alt="" src="img/hawkeye1.png" width='500'>  
 
@@ -108,7 +118,7 @@ Vertical movement from catcher's perspective. Unit is inches moved in last 40 ft
 
 ___
 
-## Hypotheses and method
+## Hypotheses and Method
 
 In this section, I describe the results of 16 hypotheses tests perfored with the `ttests.py` script. The tests examine four pitches thrown by each pitcher (fastballs, sliders, changeups, and curveballs) and four measurments for each of those pitches (release speed, release spin rate, late horizontal movement, and late vertical movement,) In all cases, I use a Welch's t-test; some of the sample sizes are uneven. Thos is due to the fact that Cole favors curveballs and deGrom favors changeups. In order to perform a Welch's t-test, I use `scipy.stats.ttest_ind`.
 
@@ -303,13 +313,13 @@ Continuing in this way with through each of rhe four pitches thrown by Jacob deG
 
 ___
 
-### Additional research
+## Additional research
 
 	1. Explain why Cole creates more spin on average but deGrom has more extreme values of spin.
 	2. Include command of pitches in analysis.
 	3. Incorporate pitch outcomes into analysis
 	4. Conduct z-test to compare overall effects.
 	
-### Acknowledgements
+## Acknowledgements
 * Dr. Juliana Duncan, lead data science instructor and principal data scientist at Galvanize Inc., for her pointed questions and conceptual help in forming hypotheses tests.
 * Alan Kessler, chief data scientist of the St. Louis Cardinals, for describing a method to scrape Baseball Savant.
