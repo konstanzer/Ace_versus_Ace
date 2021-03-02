@@ -1,5 +1,5 @@
 <a href="https://baseballsavant.mlb.com/statcast_search">
-    <img src="/img/Statcast_logo.jpg" alt="Statcast logo" title="Statcast" align="right" width="300"/>
+	<img src="/img/logo.jpg" alt="Statcast logo" title="Statcast" align="right" width="300"/>
 </a>
 
 Statcast Pitch Tracking
@@ -7,7 +7,7 @@ Statcast Pitch Tracking
 
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data based on ball flight paths and player movements. The initial radar+camera system was installed in all 30 parks in 2015 after a partial trial run in 2014.
 
-<img alt="" src="img/pitchtracker.jpg" width='400'>  
+<img alt="" src="img/statcast.jpg" width='300'>  
 
 ___
 
@@ -15,19 +15,19 @@ ___
 ### Hawk-Eye
 
 
-<img alt="" src="img/hawkeyecam.png" width='600'>  
+<img alt="" src="img/hawkeye1.png" width='500'>  
 
 
 In 2020, MLB switched from Trackman to Hawk-Eye Innovations tracking technology. Hawk-Eye systems are based on the principles of triangulation using visual images and timing data provided by a number of high-speed video cameras located at different locations and angles around the area of play. In each frame sent from each camera, the system identifies the group of pixels which corresponds to the image of the ball and calculates the position of the ball by comparing its position on at least two cameras at the same instant in time. A succession of frames builds a record of the ball travel path and predicts the future flight path of the ball, as well as where it will interact with the playing area features programmed into the database. The system can even interpret these interactions to decide infringements of the rules of the game.
 
 
-<img alt="" src="/img/hawkeyemap.png" width='800'>  
+<img alt="" src="/img/hawkeye4.png" width='500'>  
 
 
 Hawk-Eye first partnered with MLB through the 2014 launch of the video replay system. The Hawk-Eye Statcast system uses a total of 12 cameras for optical pitch, hit and player tracking. Five cameras operating at 100 frames per second are primarily dedicated to pitch tracking, while an additional seven cameras are focused on tracking players and batted balls at 50 frames per second. Objects are tracked to within 0.5cm accuracy of their true positions.
 
 
- <img alt="" src="img/objectdetection.png" width='600'>  
+ <img alt="" src="img/hawkeye5.png" width='500'>  
 
 ___
 
@@ -42,11 +42,7 @@ ___
 
 BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a powerful search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch; the website does not offer this functionality.
 
-<img alt="" src="img/savantsearch.png" width='1000'>  
-
 A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns a total count.
-
-<img alt="" src="img/cole.png" width='1000'> 
 
 At this point, I registered for an account at sportradar.com to use their Statcast API called MLB v7. I used this command in terminal.
 `curl -X GET "http://api.sportradar.us/mlb/trial/v7/en/players/46734ad0-e55b-4e2f-8a0d-72387470fcdf/pitch_metrics.json?api_key=bhj2xb7z*****"`

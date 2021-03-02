@@ -39,7 +39,7 @@ def print_test_results(df, id1, id2, pitch, stat, test_stats):
 
     result = welch_ttest(x, player1, id1, player2, id2, pitch, stat)
     
-    print(f'Welch\'s t-test result -{pitch} -{stat}:')
+    print(f't-test result -{pitch} -{stat}:')
     print('docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html')
     print(f'ID{id1} mean: {round(player1_means[stat][pitch],5)}')
     print(f'ID{id2} mean: {round(player2_means[stat][pitch],5)}')
@@ -65,14 +65,10 @@ if __name__ == "__main__":
 
     #Load data
     df = pd.read_csv('aces_2020.csv')
-    cole_id = 543037   #ID can be found in URL on Baseball Savant player page.
-    degrom_id = 594798
+    id1 = 543037  #Cole. ID can be found in URL on Baseball Savant player page.
+    id2 = 594798  #deGrom
 
     #Print Welch's t-test results
-    print('A Welch\'s t-test comparison.')
-    id1, id2 = input("Enter two player IDs: ").split(',')
-    pitches = input("Enter pitch types (FF, CU, SL, CH, FT, FS, etc.): ")
-    stats = input("Enter stat fields (release_speed, pfx_z, etc.): ")
-    print('\n')
-
-    run_tests(df, int(id1), int(id2), pitches.upper().split(','), stats.split(','))
+    stats = ['release_speed', 'release_spin_rate', 'pfx_x', 'pfx_z']
+    pitches = ['FF', 'SL', 'CU', 'CH']
+    run_tests(df, id1, id2, pitches, stats)

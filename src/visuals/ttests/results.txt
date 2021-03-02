@@ -1,0 +1,173 @@
+t-test result -FF -release_speed:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 96.71008
+ID594798 mean: 98.56216
+t-statistic: -28.61966
+p-value: 4.078188094169735e-136
+ID543037 sample size: 635
+ID594798 sample size: 510
+A histogram plot named ttest_543037_594798_SL_release_speed.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -SL -release_speed:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 88.73367
+ID594798 mean: 92.50447
+t-statistic: -38.77203
+p-value: 2.082321003924481e-161
+ID543037 sample size: 294
+ID594798 sample size: 403
+A histogram plot named ttest_543037_594798_CU_release_speed.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CU -release_speed:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 83.37874
+ID594798 mean: 84.06667
+t-statistic: -2.14734
+p-value: 0.038482104634860695
+ID543037 sample size: 207
+ID594798 sample size: 30
+A histogram plot named ttest_543037_594798_CH_release_speed.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CH -release_speed:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 88.31493
+ID594798 mean: 91.39687
+t-statistic: -15.45008
+p-value: 2.7213820060797235e-28
+ID543037 sample size: 67
+ID594798 sample size: 192
+A histogram plot named ttest_543037_594798_FF_release_spin_rate.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -FF -release_spin_rate:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 2505.10551
+ID594798 mean: 2477.00196
+t-statistic: 3.8992
+p-value: 0.00010539824654217182
+ID543037 sample size: 635
+ID594798 sample size: 510
+A histogram plot named ttest_543037_594798_SL_release_spin_rate.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -SL -release_spin_rate:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 2580.37415
+ID594798 mean: 2565.24069
+t-statistic: 1.48322
+p-value: 0.13849021020678562
+ID543037 sample size: 294
+ID594798 sample size: 403
+A histogram plot named ttest_543037_594798_CU_release_spin_rate.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CU -release_spin_rate:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 2802.78261
+ID594798 mean: 2631.83333
+t-statistic: 2.61089
+p-value: 0.01407489219154637
+ID543037 sample size: 207
+ID594798 sample size: 30
+A histogram plot named ttest_543037_594798_CH_release_spin_rate.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CH -release_spin_rate:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 1750.22388
+ID594798 mean: 1637.8125
+t-statistic: 5.69654
+p-value: 7.159485256463214e-08
+ID543037 sample size: 67
+ID594798 sample size: 192
+A histogram plot named ttest_543037_594798_FF_pfx_x.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -FF -pfx_x:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: -1.01795
+ID594798 mean: -0.57614
+t-statistic: -49.39594
+p-value: 5.2527405516666434e-282
+ID543037 sample size: 635
+ID594798 sample size: 510
+A histogram plot named ttest_543037_594798_SL_pfx_x.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -SL -pfx_x:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 0.42126
+ID594798 mean: 0.30558
+t-statistic: 11.22447
+p-value: 6.530599105792096e-27
+ID543037 sample size: 294
+ID594798 sample size: 403
+A histogram plot named ttest_543037_594798_CU_pfx_x.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CU -pfx_x:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 0.78768
+ID594798 mean: 0.604
+t-statistic: 6.67499
+p-value: 1.4049357993962715e-08
+ID543037 sample size: 207
+ID594798 sample size: 30
+A histogram plot named ttest_543037_594798_CH_pfx_x.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CH -pfx_x:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: -1.29045
+ID594798 mean: -1.12599
+t-statistic: -7.45854
+p-value: 1.0357210089717872e-11
+ID543037 sample size: 67
+ID594798 sample size: 192
+A histogram plot named ttest_543037_594798_FF_pfx_z.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -FF -pfx_z:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 1.49079
+ID594798 mean: 1.39404
+t-statistic: 12.79499
+p-value: 4.346399975091821e-35
+ID543037 sample size: 635
+ID594798 sample size: 510
+A histogram plot named ttest_543037_594798_SL_pfx_z.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -SL -pfx_z:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 0.29415
+ID594798 mean: 0.41199
+t-statistic: -7.79722
+p-value: 4.366937685905544e-14
+ID543037 sample size: 294
+ID594798 sample size: 403
+A histogram plot named ttest_543037_594798_CU_pfx_z.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CU -pfx_z:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: -0.93768
+ID594798 mean: -0.362
+t-statistic: -14.03093
+p-value: 5.90759819093891e-16
+ID543037 sample size: 207
+ID594798 sample size: 30
+A histogram plot named ttest_543037_594798_CH_pfx_z.png 
+was saved in ~/visuals/ttests. 
+
+t-test result -CH -pfx_z:
+docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html
+ID543037 mean: 0.88269
+ID594798 mean: 0.3174
+t-statistic: 20.18476
+p-value: 3.197417844565978e-48
+ID543037 sample size: 67
+ID594798 sample size: 192

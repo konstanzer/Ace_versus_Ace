@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
@@ -44,7 +45,7 @@ def dual_box_plot(stat, df1, df2, labels):
     plt.savefig(f'visuals/{stat}_boxplot.png')
 
 
-def density_plot(stat, df, name, legend, clip=None):
+def density_plot(stat, df, name, legend, xlim=None, clip=None):
     '''
     Args: str, str, series, series, list, str
     '''
@@ -52,15 +53,12 @@ def density_plot(stat, df, name, legend, clip=None):
 
     sns.set_theme(style='ticks')
     sns.color_palette('hls', 8)
-
+    plt.rc('font', **{'weight':'normal', 'size':14})
     ax.set_title(name)
     ax.set_xlabel(stat)
-
-    #Make font readable or slides
-    plt.rc('font', **{'weight':'bold', 'size':16})
-
+    if xlim != None: plt.xlim(xlim[0],xlim[1])
     #Plots density curves by pitch.
-    sns.kdeplot(df[stat], hue=df['pitch_type'], fill=True, alpha=.5,
+    sns.kdeplot(df[stat], hue=df['pitch_type'], hue_order=['FF','SL','CH','CU'], fill=True, alpha=.5,
             linewidth=2, clip=clip)
     
     #Make sure legend labels are in order
@@ -78,7 +76,7 @@ if __name__ == "__main__":
     cole = df[df.pitcher==543037]
     degrom = df[df.pitcher==594798]
 
-    labels = ['Cole', 'deGrom']
+    labels = ['Gerrit Cole', 'Jacob deGrom']
 
     dual_stacked_barchart(cole, degrom, labels, ['CH','CU','FF','SL'],
                             legend=['Changeup','Curveball','Fastball','Slider'])
@@ -90,17 +88,17 @@ if __name__ == "__main__":
     dual_box_plot('release_spin_rate', cole, degrom, labels)
     
     #Density plots
-    legend0 = ['Curveball', 'Changeup', 'Slider', 'Fastball']
-    legend1 = ['Curveball', 'Changeup', 'Fastball', 'Slider']
+    legend = ['Curveball', 'Changeup', 'Slider', 'Fastball']
 
-    density_plot('release_speed', cole, labels[0], legend0)
-    density_plot('release_speed', degrom, labels[1], legend1)
+    density_plot('release_speed', cole, labels[0], legend) #resets font
+    density_plot('release_speed', degrom, labels[1], legend, (78, 103))
+    density_plot('release_speed', cole, labels[0], legend, (78, 103))
 
-    density_plot('release_spin_rate', cole, labels[0], legend0)
-    density_plot('release_spin_rate', degrom, labels[1], legend1)
+    density_plot('release_spin_rate', cole, labels[0], legend, (1300, 3300))
+    density_plot('release_spin_rate', degrom, labels[1], legend, (1300, 3300))
 
-    density_plot('pfx_x', cole, labels[0], legend0)
-    density_plot('pfx_x', degrom, labels[1], legend1)
+    density_plot('pfx_x', cole, labels[0], legend, (-1.8, 1.5))
+    density_plot('pfx_x', degrom, labels[1], legend, (-1.8, 1.5))
 
-    density_plot('pfx_z', cole, labels[0], legend0)
-    density_plot('pfx_z', degrom, labels[1], legend1)
+    density_plot('pfx_z', cole, labels[0], legend, (-1.5, 2.2))
+    density_plot('pfx_z', degrom, labels[1], legend, (-1.5, 2.2))
