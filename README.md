@@ -36,7 +36,7 @@ ___
 
 ## Baseball Savant
 
-BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch and the website does not offer this functionality. A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns only a total count and summary statistics. Fortunately, the site allows web scraping with a simple change to the URL on the search tool page. Adding `csv?all=true` to the beginning and `type=detail` to the end will automatically download a .csv file with individual observations. These files must be broken up by for general datasets by changing the `team` and `Sea` parameters. Looping through the database in this way, I was able to download all pitching Statcast data (2015-2020, 1.7GB) in about 30 minutes with a high-speed internet connection (~80 Mbps.) I did not download offensive data.
+BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports measurements (raw numbers from the on-field action) and metrics (combinations of raw measurements into useful numbers) and provides a real-time game feed with tracking data. Baseball Savant includes a search tool to create custom queries and download the output as .csv files. However, for hypothesis testing and modeling purposes, it is useful to have an observation for each pitch and the website does not offer this functionality. A query for all pitches thrown by Gerrit Cole in the Statcast era, for example, returns only a total count and summary statistics. Fortunately, the site allows web scraping with a simple change to the URL on the search tool page. Adding `csv?all=true` to the beginning and `type=detail` to the end will automatically download a .csv file with individual observations. These files must be broken up by for general datasets by changing the `team` and `Sea` parameters. Looping through the database in this way, I was able to download all pitching Statcast data (2015-2020, 1.7GB) in about 30 minutes with a high-speed internet connection (~80 Mbps.)
 
 (As a possible alternative, an API for this data is available at sportradar.com. However, I did not have success using my trial key and did not pursue the matter further given the ease of scraping the data.)
 
@@ -93,7 +93,7 @@ ___
 
 **Density plots comparing vertical movement grouped by pitch type**
 
-Vertical movement from catcher's perspective. Unit is inches moved in last 40 ft. Negative values move down and vice versa. While no pitch technically rises due to gravity, rise in this case means the deviation from the path of a ball with no spin-induced movement.
+Vertical movement from catcher's perspective. Unit is inches moved in last 40 ft. Negative values move down and vice versa. While no pitch technically rises (due to gravity), rise in this case means the deviation from the path of a ball with no spin-induced movement.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_pfx_z_density.png" width='1000'> 
