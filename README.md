@@ -46,9 +46,13 @@ ___
 
 ## Visualizations
 
+**Stacked bar chart of pitch frequencies in 2020**
+
 <img alt="" src="src/visuals/stacked_bar_pitches.png" width='800'> 
 
 ___
+
+**Boxplots of speed, spin rates, and movement lateral and vertical**
 
 <img alt="" src="src/visuals/release_speed_boxplot.png" width='400'> 
 <img alt="" src="src/visuals/release_spin_rate_boxplot.png" width='400'> 
@@ -57,20 +61,32 @@ ___
 
 ___
 
+**Density plots comparing speeds grouped by pitch type**
+Unit is MPH measured out-of-hand
+
 <img alt="" src="src/visuals/Gerrit Cole_release_speed_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_release_speed_density.png" width='1000'>
 
 ___
+
+**Density plots comparing spin rates grouped by pitch type**
+Unit is RPM. A baseball spins approximately 17 to 22 times during travel.
 
 <img alt="" src="src/visuals/Gerrit Cole_release_spin_rate_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_release_spin_rate_density.png" width='1000'>
 
 ___
 
+**Density plots comparing lateral movement grouped by pitch type**
+Lateral movement from catcher's perspective. Unit is inches moved in last 40 feet. Negative values move in on a right-handed hitter and vice versa.
+
 <img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_pfx_x_density.png" width='1000'>
 
 ___
+
+**Density plots comparing vertical movement grouped by pitch type**
+Lateral movement from catcher's perspective. Unit is inches moved in last 40 feet. Negative values move down and vice versa. While no pitch technically rises due to gravity, rise in this case means the deviation from the path of a ball with no spin-induced movement.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_pfx_z_density.png" width='1000'> 
