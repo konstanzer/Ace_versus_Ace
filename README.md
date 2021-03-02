@@ -147,7 +147,7 @@ ___
    We have a p-value and need to compare it to our significance level of 0.1666. The p-value (the probability of seeing this result or a result more extreme given
    the null hypothesis) is far less than the significance level. Therefore my conclusion is:
    
-   I *reject the null* hypothesis that the release speed means are the same.
+   I **reject the null** hypothesis that the release speed means are the same.
 
 ___
 
@@ -193,10 +193,9 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.1666. The p-value (the probability of seeing this result or a result more extreme given
-   the null hypothesis) is far less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.1666. The p-value is less than the significance level. Therefore my conclusion is:
    
-   I *reject the null* hypothesis that the release spin rate means are the same.
+   I **reject the null** hypothesis that the release spin rate means are the same.
    
 ___
 
@@ -242,10 +241,9 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.1666. The p-value (the probability of seeing this result or a result more extreme given
-   the null hypothesis) is far less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.1666. The p-value is far less than the significance level. Therefore my conclusion is:
    
-   I *reject the null* hypothesis that the curveball vertical movement means are the same.
+   I **reject the null** hypothesis that the curveball vertical movement means are the same.
    
 ___
 
