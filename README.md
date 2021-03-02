@@ -137,7 +137,7 @@ In this section, I describe the results of 16 hypotheses tests perfored with the
 
 **Significance level**
     
-   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple means of fastball measurements between the pitchers. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
+   I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple means of fastball measurements between the pitchers. Therefore, my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
 
 **p-value**
 
@@ -152,7 +152,7 @@ In this section, I describe the results of 16 hypotheses tests perfored with the
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.0125. The p-value (the probability of seeing this result or a result more extreme given the null hypothesis) is far less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value (the probability of seeing this result or a result more extreme given the null hypothesis) is far less than the significance level. Therefore, my conclusion is:
    
    I **reject the null** hypothesis that the release speed means are the same.
    
@@ -180,7 +180,7 @@ ___
 **Significance level**
     
    I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple
-   means of slider measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
+   means of slider measurements. Thereefore, my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
 
 **p-value**
 
@@ -195,7 +195,7 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is NOT less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is NOT less than the significance level. Therefore, my conclusion is:
    
    I **do not reject the null** hypothesis that the slider release spin rate means are the same.
    
@@ -223,7 +223,7 @@ ___
 **Significance level**
     
    I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple
-   means of curveball measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
+   means of curveball measurements. Therefore, my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
    
 **p-value**
 
@@ -238,7 +238,7 @@ ___
 
 **Conclusion**
 
-   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is less than the significance level. Therefore my conclusion is:
+   We have a p-value and need to compare it to our significance level of 0.0125. The p-value is less than the significance level. Therefore, my conclusion is:
    
    I **reject the null** hypothesis that the curveball vertical movement means are the same.
    
@@ -247,7 +247,7 @@ ___
    
 ## Results
 
-Continuing in this way with through each of rhe four pitches thrown by Jacob deGrom and Gerrit Cole in 2020 (faastball, slider, curveball, and changeup) for each of the four meaurements in my DataFrame, I was able to draw the following conclusions. In all tests, I use a Bonferonni correction of 4 to account for the fact that I will be comparing multiple means of slider measurements. There for my signficance for each individual test will be 𝛼=0.05/4 = 0.0125.
+Continuing in this way with through each of rhe four pitches thrown by Jacob deGrom and Gerrit Cole in 2020 (faastball, slider, curveball, and changeup) for each of the four meaurements in my DataFrame, I was able to draw the following conclusions. In all tests, I use a Bonferonni correction of 4 to account for the fact that I am comparing multiple means of pitch measurements. Therefore, my signficance for each individual test is 𝛼=0.05/4 = 0.0125.
 
 ### Fastball
 
