@@ -9,7 +9,7 @@ Statcast is a tracking technology that allows for the collection and analysis of
 
 <img alt="" src="img/statcast.jpg" width='300'>
 
-
+## Contents
 - [Overview](#Overview)
 - [Hawk-Eye Innovations](#Hawk-Eye-Innovations)
 - [Baseball Savant](#Baseball-Savant)
