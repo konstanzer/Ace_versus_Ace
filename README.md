@@ -77,7 +77,9 @@ ___
 **Boxplots of speed, spin rates, and movement lateral and vertical**
 
 #### Key takeaways:
-* Cole has a higher average spin rate average although deGrom has a much greater range of spin values.
+* Cole has a higher average speed and deGrom has a much greater range of speeds.
+* Cole has a higher average spin rate average and deGrom has a much greater range of spin values.
+* deGrom's stratgy relies on changing spin and speeds.
 * Cole has a higher average movement in both the x and z axes.
 
 Release speeds             |  Release spin rates
@@ -123,6 +125,7 @@ Lateral movement from catcher's perspective. Unit is inches moved in last 40 ft.
 #### Key takeaways:
 * Both pitchers are right-handed.
 * Cole has a higher mean break on every pitch.
+* Cole's stratgy relies on changing movement direction and size.
 * As deGrom uses his changeup more, less may be better.
 * Sliders and curveballs tail (move away from a right-handed batter.)
 * Fastballs and changeups fade (move in on a right-handed batter.)
