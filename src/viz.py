@@ -45,7 +45,7 @@ def dual_box_plot(stat, df1, df2, labels):
     plt.savefig(f'visuals/{stat}_boxplot.png')
 
 
-def density_plot(stat, df, name, legend, xlim=None, clip=None):
+def density_plot(stat, df, name, legend, xlim=None, vertical=False, clip=None):
     '''
     Args: str, str, series, series, list, str
     '''
@@ -59,7 +59,7 @@ def density_plot(stat, df, name, legend, xlim=None, clip=None):
     if xlim != None: plt.xlim(xlim[0],xlim[1])
     #Plots density curves by pitch.
     sns.kdeplot(df[stat], hue=df['pitch_type'], hue_order=['FF','SL','CH','CU'], fill=True, alpha=.5,
-            linewidth=2, clip=clip)
+            linewidth=2, vertical=vertical, clip=clip)
     
     #Make sure legend labels are in order
     ax.legend(legend, bbox_to_anchor=(1, 1))
@@ -100,5 +100,5 @@ if __name__ == "__main__":
     density_plot('pfx_x', cole, labels[0], legend, (-1.8, 1.5))
     density_plot('pfx_x', degrom, labels[1], legend, (-1.8, 1.5))
 
-    density_plot('pfx_z', cole, labels[0], legend, (-1.5, 2.2))
-    density_plot('pfx_z', degrom, labels[1], legend, (-1.5, 2.2))
+    density_plot('pfx_z', cole, labels[0], legend, (-1.5, 2.2), vertical=False)
+    density_plot('pfx_z', degrom, labels[1], legend, (-1.5, 2.2), vertical=False)
