@@ -62,7 +62,8 @@ ___
 ___
 
 **Density plots comparing speeds grouped by pitch type**
-Unit is MPH measured out-of-hand
+
+Unit is MPH measured out-of-hand.
 
 <img alt="" src="src/visuals/Gerrit Cole_release_speed_density.png" width='1000'> 
 <img alt="" src="src/visuals/Jacob deGrom_release_speed_density.png" width='1000'>
@@ -70,6 +71,7 @@ Unit is MPH measured out-of-hand
 ___
 
 **Density plots comparing spin rates grouped by pitch type**
+
 Unit is RPM. A baseball spins approximately 17 to 22 times during travel.
 
 <img alt="" src="src/visuals/Gerrit Cole_release_spin_rate_density.png" width='1000'> 
@@ -78,6 +80,7 @@ Unit is RPM. A baseball spins approximately 17 to 22 times during travel.
 ___
 
 **Density plots comparing lateral movement grouped by pitch type**
+
 Lateral movement from catcher's perspective. Unit is inches moved in last 40 feet. Negative values move in on a right-handed hitter and vice versa.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='1000'> 
@@ -86,6 +89,7 @@ Lateral movement from catcher's perspective. Unit is inches moved in last 40 fee
 ___
 
 **Density plots comparing vertical movement grouped by pitch type**
+
 Lateral movement from catcher's perspective. Unit is inches moved in last 40 feet. Negative values move down and vice versa. While no pitch technically rises due to gravity, rise in this case means the deviation from the path of a ball with no spin-induced movement.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
