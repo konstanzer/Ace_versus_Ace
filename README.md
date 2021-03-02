@@ -15,7 +15,7 @@ ___
 
 Baseball players, managers, scouts, and fans alike have used stats to analyze and compare player performance for as long as baseball has been played. As the game increased in competitiveness and complexity, more statistics were tracked, and in some cases, as with RBIs and saves, retroactively added to playing careers long since ended. Until relatively recently in the sport's history, metrics were limited to counting stats such as strikeouts and wins or averages such as ERA and WHIP. With the introduction of the radar gun as a measure of pitch speed in the late 1970s, baseball turned a corner. Scouts had a new way to judge a player's ability based on raw, on-field athletic performance. in 2015, the amount of on-field measurements exploded with the introduction of Statcast.
 
-Much of the value of Statcast data has been realized already. Pitchers such as Adam Ottavino have revived thir careers through a process known as pitch design. Using realtime feedback from high-speed cameras connected to a laptop computing movement, the pitcher tweaks mechanics and grips until he achieves a maximally breaking pitch. For the purposes of this project, I wanted to see what measurable on-field factors were associated with a successful pitch and their opposites. It stands to reason that a pitcher may achieve an edge id he knows what factors are correlated with his successes and failures. On the opposite side of the ball, a hitter who knows the pitcher's usual plan of attack is more prepared for the location, movement, and sequence of pitches.
+Much of the value of Statcast data has been realized already. Pitchers such as Adam Ottavino have revived thir careers through a process known as pitch design. Using realtime feedback from high-speed cameras connected to a laptop computing movement, the pitcher tweaks mechanics and grips until he achieves a maximally breaking pitch. For the purposes of this project, I wanted to see what measurable on-field factors were associated with a successful pitch and outing and their opposites. It stands to reason that a pitcher may achieve an edge id he knows what factors are correlated with his successes and failures. On the opposite side of the ball, a hitter who knows the pitcher's usual plan of attack is more prepared for the location, movement, and sequence of pitches.
 ___
 
 ### Hawk-Eye
@@ -40,6 +40,55 @@ BaseballSavant.MLB.com is MLB.com's clearinghouse for Statcast data. It reports 
 
 (As a possible alternative, an API for this data is available at sportradar.com. However, I did not have success using my trial key and did not pursue the matter further given the ease of scraping the data.)
 
+<img alt="" src="img/techslide.png" width='500'>  
+
 ___
+
+### Hypotheses and method
+
+Statcast data lends itseld well to both visualizations and hypotheses testing. There are a seemingly unlimited number of ways to break up the data into two groups. The first of three questions I posed in this study, and the corollary hypotheses and method, is listed thus.
+
+**Scientific Question**
+    
+    Are the the mean fastball release speeds between Jacob deGrom and Gerrit Cole the same?
+
+**Null Hypothesis**
+    
+    The mean fastball release speeds between deGrom and Cole are the same.
+
+
+**Alternative Hypothesis**
+    
+    The mean fastball release speeds between deGrom and Cole are not the same.
+
+**Type of Test and Test Statistic**
+    
+    I use a Welch's t-test. In order to perform a Welch's t-test I use `scipy.stats.ttest_ind`.
+
+
+**What is the distribution under the null hypothesis?**
+    
+    The distribution of the null hypothesis represents the difference between the mean of the two distributions. Comparing the release speeds for
+    fastballs, it is the distribution of the difference of samples means where the assumption is that the mean of this distribution is zero:
+    𝜇FFdeGrom - 𝜇FFCole = 0
+
+
+**Significance level**
+    
+    I will select a standard significance level of 0.05. I will also use a Bonferonni correction of 3 to account for the fact that I will be comparing multiple means. There for my signficance for each individual test will be 𝛼=0.05/3 = 0.1666.
+
+
+**p-value**
+
+    Gerrit Cole mean release speed: 96.7
+    Jacob deGrom mean release speed: 98.6
+    t-stat: -28.6
+    *p-value: 4e-136*
+
+**Conclusion**
+
+    We have a p-value and need to compare it to our significance level of 0.1666. The p-value is less than the significance level. Therefore my conclusion is:
+    
+    I *reject the null* hypothesis that the release speed means are the same.
 
 
