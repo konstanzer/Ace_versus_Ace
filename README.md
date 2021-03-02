@@ -54,10 +54,13 @@ ___
 
 **Boxplots of speed, spin rates, and movement lateral and vertical**
 
-<img alt="" src="src/visuals/release_speed_boxplot.png" width='400'> 
-<img alt="" src="src/visuals/release_spin_rate_boxplot.png" width='400'> 
-<img alt="" src="src/visuals/pfx_x_boxplot.png" width='400'> 
-<img alt="" src="src/visuals/pfx_z_boxplot.png" width='400'> 
+Release speeds             |  Release spin rates
+:-------------------------:|:-------------------------:
+<img alt="" src="src/visuals/release_speed_boxplot.png" width='400'>   |  <img alt="" src="src/visuals/release_spin_rate_boxplot.png" width='400'>
+
+Lateral movements          |  Vertical movements
+:-------------------------:|:-------------------------:
+<img alt="" src="src/visuals/pfx_x_boxplot.png" width='400'>   |  <img alt="" src="src/visuals/pfx_z_boxplot.png" width='400'> 
 
 ___
 
