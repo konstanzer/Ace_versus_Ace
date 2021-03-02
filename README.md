@@ -8,6 +8,7 @@ Ace versus Ace: An analysis of 2020 Statcast data for Gerrit Cole and Jacob deGr
 Statcast is a tracking technology that allows for the collection and analysis of a massive amount of baseball data based on ball flight paths and player movements. The initial camera and radar system was installed in all 30 MLB parks in 2015 after a trial run in 2014. This project focuses specifically on Statcast data for two pitchers, Gerit Cole of the New York Yankees and Jacob deGrom of the New York Mets, gathered during the abbreviated 2020 season. The dataset includes a total of 2,338 pitches each with five features: pitch type, release speed, release spin rate, vertical movement, and horizontal movement.
 
 <img alt="" src="img/statcast.jpg" width='300'>  
+
 ___
 
 ### Overview
