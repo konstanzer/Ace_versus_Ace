@@ -251,17 +251,57 @@ Continuing in this way with through each of rhe four pitches thrown by Jacob deG
 
 ### Fastball
 
-#### Observations:
-	Cole: 635
-	deGrom: 510
+#### Total observations:
+* Gerrit Cole: 635
+* Jacob deGrom: 510
 
-| Measurement       | p-value | 𝜇Cole   | 𝜇deGrom | RTN
-|-------------------|---------|---------|---------|-----
-| release speed     | 4e-136  | 96.7    | 98.6    | Y
-| release spin rate | 0.0001  | 2505    | 2477    | Y
-| lateral movement  |
-| vertical movement |
+| Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
+|-------------------|---------|-----------|-----------|-----|
+| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
+| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
+| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
+| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
 
+### Slider
+
+#### Total observations:
+* Gerrit Cole: 294
+* Jacob deGrom: 403
+
+| Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
+|-------------------|---------|-----------|-----------|-----|
+| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
+| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
+| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
+| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+
+### Curveball
+
+#### Total observations:
+* Gerrit Cole: 207
+* Jacob deGrom: 30
+
+| Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
+|-------------------|---------|-----------|-----------|-----|
+| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
+| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
+| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
+| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+
+### Changeup
+
+#### Total observations:
+* Gerrit Cole: 67
+* Jacob deGrom: 192
+
+| Measurement       | p-value | 𝜇Cole     | 𝜇deGrom   | RTN |
+|-------------------|---------|-----------|-----------|-----|
+| release speed     | 4e-136  | 96.7      | **98.6**  | Y   |
+| release spin rate | 0.0001  | **2505**  | 2477      | Y   |
+| lateral movement  | 5e-282  | **-1.01** | -0.58     | Y   |
+| vertical movement | 4e-35   | **1.49**  | 1.39      | Y   |
+
+___
 
 ### Additional research
 
