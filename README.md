@@ -78,8 +78,8 @@ ___
 
 #### Key takeaways:
 * Cole has a higher average speed and deGrom has a much greater range of speeds.
-* Cole has a higher average spin rate average and deGrom has a much greater range of spin values.
-* deGrom's stratgy relies on changing spin and speeds.
+* Cole has a higher average spin rate average and deGrom has a higher top speed.
+* deGrom's stratgy may rely on changing spin and speeds.
 * Cole has a higher average movement in both the x and z axes.
 
 Release speeds             |  Release spin rates
