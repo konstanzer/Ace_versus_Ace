@@ -124,7 +124,7 @@ Lateral movement from catcher's perspective. Unit is inches moved in last 40 ft.
 * Both pitchers are right-handed.
 * Cole has a higher mean break on every pitch.
 * As deGrom uses his changeup more, less may be better.
-* Sliders and curveballs tail (move way from a right-handed batter.)
+* Sliders and curveballs tail (move away from a right-handed batter.)
 * Fastballs and changeups fade (move in on a right-handed batter.)
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_x_density.png" width='1000'> 
@@ -137,8 +137,8 @@ ___
 Vertical movement from catcher's perspective. Unit is inches moved in last 40 ft. Negative values move down and vice versa. While no pitch technically rises (due to gravity), rise in this case means the deviation from the path of a ball with no spin-induced movement.
 
 #### Key takeaways:
-* Cole has a higher mean break on fastballs and changeups; deGrom is higher for sliders and curves.
-* As Cole uses his curveball more, less may be better.
+* Cole has a higher mean break on fastballs, curves and changeups.
+* Curveballs may benefit from vertical break more than changeups.
 * Fastballs, sliders, and changeups rise on average.
 
 <img alt="" src="src/visuals/Gerrit Cole_pfx_z_density.png" width='1000'> 
