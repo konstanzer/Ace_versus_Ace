@@ -151,7 +151,7 @@ ___
 
 ## Hypotheses and Method
 
-In this section, I describe the results of 16 hypotheses tests perfored with the `ttests.py` script. The tests examine four pitches thrown by each pitcher (fastballs, sliders, changeups, and curveballs) and four measurments for each of those pitches (release speed, release spin rate, late horizontal movement, and late vertical movement,) In all cases, I use a Welch's t-test; some of the sample sizes are uneven. Thos is due to the fact that Cole favors curveballs and deGrom favors changeups. In order to perform a Welch's t-test, I use `scipy.stats.ttest_ind`.
+In this section, I describe the results of three hypotheses tests perfored with the `ttests.py` script. The tests examine four pitches thrown by each pitcher (fastballs, sliders, changeups, and curveballs) and four measurments for each of those pitches (release speed, release spin rate, late horizontal movement, and late vertical movement,) In all cases, I use a Welch's t-test; some of the sample sizes are uneven. Thos is due to the fact that Cole favors curveballs and deGrom favors changeups. In order to perform a Welch's t-test, I use `scipy.stats.ttest_ind`.
 
 `result = scs.ttest_ind(df_cole[df_cole.pitch_type==pitch][stat], df_degrom[df_degrom.pitch_type==pitch][stat], equal_var=False)`
 
