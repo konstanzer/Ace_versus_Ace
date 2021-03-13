@@ -352,5 +352,5 @@ ___
 	4. Conduct z-test to compare overall effects.
 	
 ## Acknowledgements
-* Dr. Juliana Duncan, lead data science instructor and principal data scientist at Galvanize Inc., for her pointed questions and conceptual help in forming hypotheses tests.
+* Dr. Juliana Duncan, principal data scientist at Galvanize Inc., and Dan Rupp, data scientist at Galvanize, for their pointed questions and conceptual help in forming hypotheses tests.
 * Alan Kessler, chief data scientist of the St. Louis Cardinals, for describing a method to scrape Baseball Savant.
